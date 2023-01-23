@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page3</title>
+  </head>
+  <body>
+    <form action="page3.php" method="get">
+      <label for="email">Votre E-MAIL</label>
+      <input type="email" name="email" id="email" placeholder="nom@provider.domaine" />
+      <hr />
+      <label for="comment">Tapez ici votre commentaire</label>
+      <textarea
+        name="comment"
+        id="comment"
+        cols="30"
+        rows="10"
+        placeholder="Votre commentaire"
+      ></textarea>
+      <hr />
+      <label for="liste">Votre choix avec une liste</label>
+      <select name="liste" id="liste">
+        <option value="choix1">choix 1</option>
+        <option value="choix2" selected>choix 2</option>
+        <option value="choix3">choix 3</option>
+      </select>
+      <hr />
+      <label for="checkbox[]">Votre choix avec checkbox</label><br />
+      <input type="checkbox" name="checkbox[]" id="case1" value="case1" /> Case 1
+      <br />
+      <input type="checkbox" name="checkbox[]" id="case2" checked value="case2" />
+      Case 2 <br />
+      <input type="checkbox" name="checkbox[]" id="case3" checked value="case3" />
+      Case 3 <br />
+      <hr />
+      <label for="radioBtn">Votre choix avec des boutons radio</label>
+      <input type="radio" name="radioBtn" value="bouton1" checked /> Bouton 1
+      <input type="radio" name="radioBtn" value="bouton2" /> Bouton 2
+      <input type="radio" name="radioBtn" value="bouton3" /> Bouton 3
+      <hr />
+      <label for="file">Un fichier</label>
+      <input type="file" name="file" id="file" class="custom-file-input" />
+      <hr />
+      <input type="submit" value="Envoyer" />
+      <input type="reset" value="Recommencer" />
+    </form>
+  </body>
+</html>
+
+<script>
+  function redirect() {
+    window.location.href = "page3.php";
+    return false;
+  }
+</script>

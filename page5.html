@@ -7,9 +7,34 @@
     <title>Page 5</title>
   </head>
   <body>
-    <form action="">
-      <label for="nom">Veuillez saisire le nom</label>
+    <form action="page5.php" method="post">
+      <label for="nom">Veuillez saisir votre nom</label>
       <input type="text" name="nom" id="nom" placeholder="Nom" />
+      <hr />
+      <div
+        style="
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          max-width: 50%;
+          gap: 1rem;
+        "
+      >
+        <label for="nb1">Veuillez saisir une première valeur. </label>
+        <input type="number" name="nb1" id="nb1" />
+        <label for="nb2">Veuillez saisir une deuxième valeur.</label>
+        <input type="number" name="nb2" id="nb2" />
+        <div style="display: flex; gap: 1rem">
+          <input type="submit" value="Envoyer" />
+          <input type="reset" value="Recommencer" />
+        </div>
+      </div>
     </form>
+
+    <script>
+      function redirect() {
+        window.location.href = "page3.php";
+        return false;
+      }
+    </script>
   </body>
 </html>

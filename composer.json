@@ -1,0 +1,14 @@
+{
+    "name": "mampionona/tutoriel-php",
+    "autoload": {
+        "psr-4": {
+            "Mampionona\\TutorielPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mampionona"
+        }
+    ],
+    "require": {}
+}

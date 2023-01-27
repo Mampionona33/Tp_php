@@ -7,7 +7,7 @@ CREATE TABLE `exemple` (
 // si formulaire envoyé
 if (isset($_POST['description'])) {
     // connexion à la base de données
-    $bdd = mysqli_connect('localhost', 'root', 'damien', 'test')
+    $bdd = mysqli_connect('localhost', 'root', '', 'test')
         or die("Impossible de se connecter à la base de données");
     // protection des données
     $description = mysqli_real_escape_string($bdd, $_POST['description']);

@@ -14,3 +14,8 @@ if (isset($_GET["checkbox"])) {
 }
 
 echo "radioBtn : $radioBtn; <br/> file : $file; <hr/> ";
+
+
+echo '<form method="POST" action="page3.html">
+<input type="submit" value="Recommencer" />
+</form>';

@@ -1,6 +1,7 @@
 <?php
-$name = $_POST["name"];
-$age = $_POST["age"];
+// $name = $_POST["name"];
+// $age = $_POST["age"];
+extract($_POST);
 
 // include("./krumo-0.4.4/class.krumo.php");
 // krumo($age);
@@ -17,3 +18,7 @@ if ($age !== "" && $name !== "") {
         echo "Bonjour M.$name, vous avez 18 ans";
     }
 }
+
+echo '<form method="POST" action="page3.html">
+<input type="submit"/>
+</form>';

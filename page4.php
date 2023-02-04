@@ -6,6 +6,8 @@ extract($_POST);
 echo "Nom : $name <br>";
 echo "Age : $age <br>";
 
+echo "<hr/>";
+
 if ($age !== "" && $name !== "") {
     if ($age * 1 < 18) {
         echo "Bonjour M.$name, vous avez moins de 18 ans";

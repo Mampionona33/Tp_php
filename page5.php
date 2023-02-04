@@ -2,29 +2,21 @@
 
 include("./krumo-0.4.4/class.krumo.php");
 
-$nom = $_POST["nom"];
-$nb1 = $_POST["nb1"];
-$nb2 = $_POST["nb2"];
+extract($_POST);
 
-if ($nb1 !== "") {
-    $nb1 = $nb1 * 1;
-}
-if ($nb2 !== "") {
-    $nb2 = $nb2 * 1;
-}
-
-if (is_int($nb1) && is_int($nb2)) {
-    // krumo($nb1);
-
-    if ($nb1 < $nb2) {
-        echo "le nombre le plus grand est $nb2, et le nombre le plus petit est $nb1.";
-    } else if ($nb1 >  $nb2) {
+if ($nb1 && $nb2) {
+    if ($nb1 > $nb2) {
         echo "le nombre le plus grand est $nb1, et le nombre le plus petit est $nb2.";
+    } elseif ($nb1 < $nb2) {
+        echo "le nombre le plus grand est $nb2, et le nombre le plus petit est $nb1.";
     } else {
-        echo "les deux nombres ont la même valeur.";
+        echo "Les deux nombres sont égaux.";
     }
-
-    echo '<br> <a href="page5.html" >Cliquez ici pour recommencer !!</a>';
+    echo ' <hr/> <form methode="post" action="page5.html" >
+    <input type=submit value="Recommencez ?" />
+    <form/>';
 } else {
-    echo 'Vous n\'avez pas saisi deux nombres entiers. <a href="page5.html" > Veuillez réessayer.</a>';
+    echo 'Vous n\'avez pas saisit deux nombres: <hr/> <form methode="post" action="page5.html" >
+    <input type=submit value="Recommencez SVP" />
+    <form/> ';
 }

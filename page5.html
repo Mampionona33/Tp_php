@@ -9,7 +9,7 @@
   <body>
     <form action="page5.php" method="post">
       <label for="nom">Veuillez saisir votre nom</label>
-      <input type="text" name="nom" id="nom" placeholder="Nom" />
+      <input type="text" name="nom" id="nom" placeholder="Nom" required />
       <hr />
       <div
         style="
@@ -29,12 +29,5 @@
         </div>
       </div>
     </form>
-
-    <script>
-      function redirect() {
-        window.location.href = "page3.php";
-        return false;
-      }
-    </script>
   </body>
 </html>

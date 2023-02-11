@@ -1,9 +1,9 @@
 <?php
 include("./krumo-0.4.4/class.krumo.php");
 
-extract($_GET);
+extract($_POST);
 
-echo "Vous avez saisie:  $number<br/> <hr/> ";
+echo "Vous avez saisie:  $number <br/> <hr/> ";
 
 if (fmod($number, 5) == 0 && fmod($number, 3) == 0) {
     echo "Le nombre est multiple de 3 et 5";

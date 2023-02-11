@@ -1,5 +1,4 @@
 <?php
-
 echo '
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +9,7 @@ echo '
     <title>Page3</title>
   </head>
   <body>
-    <form action="page3.php" method="get">
+    <form action="page3.php" method="post">
       <label for="number">Saisir un nombre</label>
       <input type="number" name="number" id="number" required />
       <br />

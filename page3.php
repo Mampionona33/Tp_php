@@ -3,12 +3,11 @@ include("./krumo-0.4.4/class.krumo.php");
 
 extract($_POST);
 
-echo "Vous avez saisie:  $number <br/> <hr/> ";
 
-if (fmod($number, 5) == 0 && fmod($number, 3) == 0) {
-    echo "Le nombre est multiple de 3 et 5";
+if ($age > 21 && $age < 40 && $sex == "Femme") {
+    echo "Bonjour Madame, vous avez bien entre 21 et 40";
 } else {
-    echo "Le nombre n'est pas multiple de 3 et 5";
+    echo "Désolé vous n'avez pas les condition requis";
 }
 
 echo ' <hr/> <form method="POST" action="page3_1.php">

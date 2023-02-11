@@ -10,8 +10,13 @@ echo '
   </head>
   <body>
     <form action="page3.php" method="post">
-      <label for="number">Saisir un nombre</label>
-      <input type="number" name="number" id="number" required />
+    <label for="sex">Saisissez votre sex </label>
+      <br/>
+      <input type="radio" name="sex" value="Femme" checked /> Femme
+      <input type="radio" name="sex" value="Homme" /> Homme
+      <hr />
+      <label for="age">Age</label>
+      <input type="number" name="age" id="age" required min=0 />
       <br />
       <br />
       <input type="submit" value="Ok" />

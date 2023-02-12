@@ -1,18 +1,18 @@
 <?php
 
-function ecrire_bonjour()
+function compare2nb($nb1, $nb2)
 {
-  echo 'Bonjour le monde </br>';
+  if ($nb1 == $nb2) {
+    echo $nb1 . " est égale à " . $nb2 . "<br/>";
+  } elseif ($nb1 > $nb2) {
+    echo $nb1 . " est supérieur à " . $nb2 .  "<br/>";
+  } else {
+    echo $nb1 . " est inférieur à " . $nb2 .  "<br/>";
+  }
 };
 
-echo "<hr/> <h1> Whith for loop  </h1>";
-for ($i = 0; $i < 10; $i++) {
-  ecrire_bonjour();
-};
+compare2nb(1, 2);
 
-echo '<hr/> <h1> whith while loop  </h1> ';
-$a = 0;
-while ($a < 10) {
-  ecrire_bonjour();
-  $a++;
-}
+compare2nb(3, 3);
+
+compare2nb(3, 1);

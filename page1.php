@@ -3,10 +3,13 @@
 // BOUCLE FOR INCREMENT
 echo 'Boucle "for" increment: <br/>';
 for ($a = 0; $a < 2; $a++) {
-    for ($i = 1; $i < 100; $i++) {
-        echo ("$i - ");
+    for ($i = 1; $i <= 100; $i++) {
+        if ($i == 100) {
+            echo $i;
+        } else {
+            echo ("$i - ");
+        }
     }
-    echo "100";
     echo "<hr/>";
 }
 echo "<hr/>";
@@ -18,11 +21,14 @@ $b = 0;
 while ($b < 2) {
     $b++;
     $c = 0;
-    while ($c < 99) {
+    while ($c <= 99) {
         $c++;
-        echo ("$c - ");
+        if ($c == 100) {
+            echo $c;
+        } else {
+            echo ("$c - ");
+        }
     };
-    echo "100";
     echo "<hr/>";
 };
 echo "<hr/>";
@@ -31,10 +37,13 @@ echo "<hr/>";
 // BOUCLE FOR DECREMENT
 echo 'Boucle "for" decrement: <br/>';
 for ($i = 0; $i < 2; $i++) {
-    for ($a = 100; $a > 1; $a--) {
-        echo "$a -";
+    for ($a = 100; $a >= 1; $a--) {
+        if ($a == 1) {
+            echo $a;
+        } else {
+            echo "$a -";
+        }
     }
-    echo "1";
     echo "<hr/>";
 };
 echo "<hr/>";
@@ -46,11 +55,14 @@ $e = 0;
 while ($e < 2) {
     $e++;
     $f = 101;
-    while ($f > 2) {
+    while ($f > 1) {
         $f--;
-        echo ("$f - ");
+        if ($f == 1) {
+            echo $f;
+        } else {
+            echo ("$f - ");
+        }
     };
-    echo "1";
     echo "<hr/>";
 };
 echo "<hr/>";

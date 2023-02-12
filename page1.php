@@ -1,10 +1,4 @@
 <?php
-$string = 'April 15, 2003';
-$pattern = '/(\w+) (\d+), (\d+)/i';
-$replacement = '${1}1,$3';
-echo preg_replace($pattern, $replacement, $string);
-?>
-<?php
 
 // Création de l'image
 $image = imagecreatetruecolor(200, 200);

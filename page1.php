@@ -1,10 +1,8 @@
 <?php
 
-$inputText = file('text.txt', 0, null);
-$numberArray = [];
+$fileName = 'output.txt';
+$data = "Bonjour";
 
-foreach ($inputText as $key => $value) {
-    array_push($numberArray, $value * 1);
-};
-
-var_dump($numberArray);
+if (file_put_contents($fileName, $data)) {
+    echo "Le fichier $fileName à été créer";
+}

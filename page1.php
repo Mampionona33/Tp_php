@@ -1,8 +1,10 @@
 <?php
 
-$fileName = 'output.txt';
-$data = "Bonjour";
+$inputText = file_get_contents('input.txt', false, null, 0);
 
-if (file_put_contents($fileName, $data)) {
-    echo "Le fichier $fileName à été créer";
+
+if ($inputText) {
+    echo $inputText;
+} else {
+    echo "the input file is empty";
 }

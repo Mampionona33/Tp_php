@@ -1,0 +1,3 @@
+<?php
+
+$fileName = 'myCsv.csv';

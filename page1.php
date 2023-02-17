@@ -12,41 +12,48 @@ $list = array(
     array('"aaa"', '"bbb"')
 );
 
-if (!is_file("$fileName")) {
-    echo "file not exist";
-    if (file_put_contents($fileName, "")) {
-        $pool
-            ->add(function ($fileName, $list) {
-                echo "test";
-                $fp = fopen($fileName, 'w');
-                foreach ($list as $fields) {
-                    fputcsv($fp, $fields);
-                }
-                fclose($fp);
-            })
-            ->then(function () {
-                echo "file successfully created";
-            })
-            ->catch(function ($error) {
-                echo "$error";
-            });
-    }
-}
-
-
-// $pool = Pool::create();
-
-// foreach ($things as $thing) {
-//     $pool->add(function () use ($thing) {
-//         // Do a thing
-//         echo "test 1";
-//     })->then(function ($output) {
-//         // Handle success
-//         echo "test 2";
-//     })->catch(function (Throwable $exception) {
-//         // Handle exception
-//         echo "test 3";
-//     });
+// if (!is_file($fileName)) {
+//     // echo "file not exist";
+//     foreach ($things as $thing) {
+//         $pool
+//             ->add(function ($fileName) use ($thing) {
+//                 file_put_contents($fileName, "");
+//                 return $fileName;
+//             })->then(function ($output) {
+//             echo $output . 'test';
+//             // echo "test";
+//             // $fp = fopen($fileName, 'w');
+//             // foreach ($list as $fields) {
+//             //     fputcsv($fp, $fields);
+//             // }
+//             // fclose($fp);
+//         })->catch(function (Throwable $exeption) {
+//             echo $exeption;
+//         });
+//         $pool->wait();
+//     }
 // }
 
-// $pool->wait();
+function createFile()
+{
+    if (file_put_contents($GLOBALS['fileName'], "")) {
+        return true;
+    } else {
+        return false;
+    }
+}
+;
+
+if (!is_file($fileName)) {
+    foreach ($things as $thing) {
+        $pool
+            ->add(function () use ($thing) {
+                echo "test";
+            })->then(
+                echo "then";
+            )->catch();
+    }
+
+} else {
+    echo "file exist";
+}

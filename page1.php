@@ -4,56 +4,58 @@ use Spatie\Async\Pool;
 
 $pool = Pool::create();
 
-$fileName = 'myCsv.csv';
+$fileName = "myCsv.csv";
 
 $list = array(
     array('aaa', 'bbb', 'ccc', 'dddd'),
     array('123', '456', '789'),
-    array('"aaa"', '"bbb"')
+    array('aaa', 'bbb')
 );
 
-// if (!is_file($fileName)) {
-//     // echo "file not exist";
-//     foreach ($things as $thing) {
-//         $pool
-//             ->add(function ($fileName) use ($thing) {
-//                 file_put_contents($fileName, "");
-//                 return $fileName;
-//             })->then(function ($output) {
-//             echo $output . 'test';
-//             // echo "test";
-//             // $fp = fopen($fileName, 'w');
-//             // foreach ($list as $fields) {
-//             //     fputcsv($fp, $fields);
-//             // }
-//             // fclose($fp);
-//         })->catch(function (Throwable $exeption) {
-//             echo $exeption;
-//         });
-//         $pool->wait();
-//     }
+// $fp = fopen($fileName, 'w');
+
+// foreach ($list as $field) {
+//     fputcsv($fp, $field);
 // }
 
-function createFile()
-{
-    if (file_put_contents($GLOBALS['fileName'], "")) {
-        return true;
-    } else {
-        return false;
-    }
-}
-;
+// if()
+
+// fclose($fp);
 
 if (!is_file($fileName)) {
-    foreach ($things as $thing) {
-        $pool
-            ->add(function () use ($thing) {
-                echo "test";
-            })->then(
-                echo "then";
-            )->catch();
+    $fp = fopen($fileName, 'w');
+    foreach ($list as $field) {
+        fputcsv($fp, $field);
     }
-
+    fsync($fp);
+    fclose($fp);
+    header("Location: page2.php");
+    die();
 } else {
-    echo "file exist";
+    header("Location: page2.php");
+    die();
 }
+
+
+// if (!is_file($fileName)) {
+// // echo "file not exist";
+// foreach ($things as $thing) {
+// $pool
+// ->add(function ($fileName) use ($thing) {
+// file_put_contents($fileName, "");
+// return $fileName;
+// })->then(function ($output) {
+// echo $output . 'test';
+// // echo "test";
+// // $fp = fopen($fileName, 'w');
+// // foreach ($list as $fields) {
+// // fputcsv($fp, $fields);
+// // }
+// // fclose($fp);
+// })->catch(function (Throwable $exeption) {
+// echo $exeption;
+// });
+// $pool->wait();
+// }
+// }
+?>

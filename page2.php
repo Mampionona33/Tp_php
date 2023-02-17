@@ -1,12 +1,14 @@
 <?php
 
-$folderName = 'myFolder';
-
-if (!is_dir($folderName)) {
-    header("Location: page1.php");
-    die();
-} else {
-    if (rmdir("./$folderName")) {
-        echo "The folder has been successfully removed !";
+function readCsv($csvFile)
+{
+    $openFile = fopen($csvFile, "r");
+    while (($data = fgetcsv($openFile)) !== false) {
+        for ($i = 0; $i < count($data); $i++) {
+            print_r($data[$i] . ';');
+        }
     }
-};
+}
+;
+
+readCsv('myCsv.csv');

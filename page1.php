@@ -1,5 +1,17 @@
 <?php
 
+// Il faut considerer la porté des variables
+echo 'Boucle "for" increment: <br/>';
+for ($a = 0; $a < 2; $a++) {
+    for ($i = 0; $i <= 99; $i++) {
+        echo $i . ' - ';
+    }
+    // le $i est global
+    echo $i;
+    echo "<hr/>";
+}
+echo "<hr/>";
+
 // BOUCLE FOR INCREMENT
 echo 'Boucle "for" increment: <br/>';
 for ($a = 0; $a < 2; $a++) {
@@ -13,6 +25,7 @@ for ($a = 0; $a < 2; $a++) {
     echo "<hr/>";
 }
 echo "<hr/>";
+
 // -------------------------------------------
 
 // BOUCLE WHILE INCREMENT

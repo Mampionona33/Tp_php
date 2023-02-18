@@ -1,36 +1,53 @@
 <?php
-extract($_POST);
 
-if ($pas > $debut && $pas > $fin) {
-    echo '
-    <p> Le pas doit être inferieur au debut et au fin </p> 
-    <form action="page1.html" method="post">
-        <input type="submit" value="Recommencer">
-    </form>
-        ';
+// Configuration de la base de données
+$host = "localhost";
+$username = "root";
+$password = "";
+$dbname = "test";
+$table = "exemple";
+
+// Connexion à la base de données
+$mysqli = new mysqli($host, $username, $password, $dbname);
+
+// Vérification des erreurs de connexion
+if ($mysqli->connect_error) {
+    die('Erreur de connexion (' . $mysqli->connect_errno . ') '
+        . $mysqli->connect_error);
+}
+echo nl2br("Connect successfully to the database : $dbname <hr/> \n");
+
+
+// Requête SQL
+$sql = "SELECT * FROM $table";
+
+// Exécution de la requête
+if ($result = $mysqli->query($sql)) {
+    // Traitement des résultats
+    echo nl2br('Select table' . ' "' . $table . '"' . ": \n");
+    while ($row = $result->fetch_row()) {
+        echo nl2br("{$row[0]}\n");
+    }
+    // Libération des résultats
+    $result->free();
 } else {
-    if ($debut == $fin) {
-        echo '
-        <p> le debut ne doit pas être égale à la fin !! </p> 
-        <form action="page1.html" method="post">
-            <input type="submit" value="Recommencer">
-        </form>
-            ';
-    } else if ($debut < $fin) {
-        echo '<form action="page1.html" method="post">
-            <input type="submit" value="Recommencer">
-            </form>';
-        for ($i = $debut; $i < $fin; $i += $pas) {
-            echo "$i - ";
-        }
-        echo "$i";
-    } else {
-        echo '<form action="page1.html" method="post">
-            <input type="submit" value="Recommencer">
-            </form>';
-        for ($i = $debut; $i > $fin; $i -= $pas) {
-            echo "$i - ";
-        }
-        echo "$i";
-    };
-};
+    // Gestion des erreurs d'exécution de la requête
+    echo "Erreur: " . $mysqli->error;
+}
+
+// Fermeture de la connexion
+$mysqli->close();
+
+// $link = mysqli_connect('localhost', 'root', '')
+// or die("Impossible de se connecter : " . mysqli_error($link));
+// echo 'Connexion réussie <hr />';
+// $dbname = 'test';
+
+// $sql = "SHOW TABLES FROM $dbname";
+// $result = mysqli_query($link, $sql);
+// echo "Liste des tables dans la base de donnée test : <br />";
+// while ($row = mysqli_fetch_row($result)) {
+// echo "Table: {$row[0]}\n";
+// }
+
+// mysqli_free_result($result);

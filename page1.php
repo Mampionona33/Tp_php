@@ -20,23 +20,17 @@ if ($pas > $debut && $pas > $fin) {
         echo '<form action="page1.html" method="post">
             <input type="submit" value="Recommencer">
             </form>';
-        for ($i = $debut; $i <= $fin; $i += $pas) {
-            if ($i == $fin) {
-                echo "$i";
-            } else {
-                echo "$i - ";
-            }
+        for ($i = $debut; $i < $fin; $i += $pas) {
+            echo "$i - ";
         }
+        echo "$i";
     } else {
         echo '<form action="page1.html" method="post">
             <input type="submit" value="Recommencer">
             </form>';
-        for ($i = $debut; $i >= $fin; $i -= $pas) {
-            if ($i == $fin) {
-                echo "$i";
-            } else {
-                echo "$i - ";
-            }
+        for ($i = $debut; $i > $fin; $i -= $pas) {
+            echo "$i - ";
         }
+        echo "$i";
     };
 };

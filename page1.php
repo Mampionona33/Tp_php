@@ -6,7 +6,7 @@ for ($a = 0; $a < 2; $a++) {
     for ($i = 1; $i < 99; $i += 2) {
         echo "$i - ";
     }
-    echo "99";
+    echo $i;
     echo "<hr/>";
 }
 echo "<hr/>";
@@ -19,11 +19,11 @@ while ($b < 2) {
     $b++;
     $c = 1;
     echo "$c - ";
-    while ($c < 98) {
-        $c += 2;
+    while ($c < 99) {
         echo "$c - ";
+        $c += 2;
     };
-    echo "99";
+    echo $c;
     echo "<hr/>";
 };
 echo "<hr/>";
@@ -35,7 +35,7 @@ for ($i = 0; $i < 2; $i++) {
     for ($a = 100; $a > 2; $a -= 2) {
         echo "$a -";
     }
-    echo "2";
+    echo $a;
     echo "<hr/>";
 };
 echo "<hr/>";
@@ -47,12 +47,11 @@ $e = 0;
 while ($e < 2) {
     $e++;
     $f = 100;
-    echo "$f - ";
-    while ($f > 4) {
-        $f -= 2;
+    while ($f > 2) {
         echo "$f - ";
+        $f -= 2;
     };
-    echo "2";
+    echo $f;
     echo "<hr/>";
 };
 echo "<hr/>";

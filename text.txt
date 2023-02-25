@@ -1,6 +1,4 @@
-
-
-Le passage de Lorem Ipsum standard, utilisé depuis 1500
+e passage de Lorem Ipsum standard, utilisé depuis 1500
 
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 

@@ -15,6 +15,6 @@ fclose($text3);
 
 // Test avec file_get_content
 $text2 = file_get_contents('text.txt', false, null, 0);
-$first = explode(' ', $text2);
+$first = explode(htmlspecialchars(), $text2);
 var_dump($first);
 // echo '<hr/>Test avec file_get_content : <br/> <p style="font-size: 1.5rem;">' . $text2 . '</p>';

@@ -6,7 +6,8 @@ $nombreLigne = 0;
 
 foreach ($text as $key => $value) {
     $nombreLigne++;
-    if (strlen($value)  % 2) {
+    // echo $nombreLigne;
+    if ($nombreLigne  % 2) {
         array_push($evenLine, $value);
     }
 };

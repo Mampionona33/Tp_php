@@ -1,7 +1,7 @@
 <?php
 
 $folderName = 'myFolder';
-explode($_POST);
+extract($_POST);
 
 echo '
 <!DOCTYPE html>
@@ -13,30 +13,38 @@ echo '
     <title>Document</title>
   </head>
   <body>
-    <form action="page1.php" method="post">
-      <input type="submit" name="createsFolder" value="Create folder" />
-      <input type="submit" name="deleteFolder" value="Delete folder" />
-    </form>
+    <div style="display: flex; flex-direction: row; gap: 1rem">
+      <form action="page1.php" method="post">
+        <input type="submit" name="createFolder" value="Create folder" />
+      </form>
+      <form action="page1.php" method="post">
+        <input type="submit" name="deleteFolder" value="Delete folder" />
+      </form>
+    </div>
+    <hr>
   </body>
 </html>
+
 ';
 
 if (!is_dir($folderName)) {
-    header("Location: page1.php");
-    die();
-} else {
-    if (rmdir("./$folderName") && $_POST["deleteFolder"] == "Delete folder") {
-        echo "The folder has been successfully removed !";
+    if (isset($deleteFolder)) {
+        echo "There is no floder to delete. Please create a new one.";
+    } elseif (isset($createFolder)) {
+        if (mkdir("./$folderName", 0700, false, null)) {
+            echo "The folder $folderName has been successfully created !";
+        } else {
+            echo "Error when attempting to create the folder";
+        }
     }
-};
-
-// if (!is_dir($folderName)) {
-//     if (mkdir("./$folderName", 0700, false, null)) {
-//         echo "The folder $folderName has been successfully created !";
-//     } else {
-//         echo "Error on attempting to create the folder";
-//     }
-// } else {
-//     header("Location: page2.php");
-//     die();
-// }
+} else {
+    if (isset($deleteFolder)) {
+        if (rmdir("./$folderName")) {
+            echo "The folder has been successfully removed !";
+        } else {
+            echo "Error when attempting to delete the folder";
+        }
+    } else {
+        echo "The folder alredy exist, click on delete button to remove it!!!";
+    }
+}

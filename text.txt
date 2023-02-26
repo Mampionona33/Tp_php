@@ -1,22 +1,23 @@
-1
-2
-3 Le passage de Lorem Ipsum standard, utilisé depuis 1500
-4
-5 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-6 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-7 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-8 ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate 
-9 velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
-10 cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-11 Section 1.10.32 du "De Finibus Bonorum et Malorum" de Ciceron (45 av. J.-C.)
-
-12 "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 
-laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi 
-architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas 
-sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione 
-voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, 
-consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et 
-dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem 
-ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem 
-vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, 
-vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+1. 
+2.     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+3.     Vivamus consectetur justo at leo auctor, semper finibus lectus pharetra.
+4.     Integer malesuada ligula et orci consectetur varius.
+5. 
+6.     Vestibulum vel diam quis justo fringilla ultricies sit amet in ante.
+7.     Quisque convallis augue ut nisl condimentum ornare.
+8. 
+9.     Nunc condimentum mi at erat volutpat lobortis.
+10.     Sed tempus nunc gravida, tristique erat et, iaculis nibh.
+11. 
+12.     Sed eu est vehicula, ullamcorper lectus vel, egestas nibh.
+13.     Nulla placerat augue at dolor posuere tempor.
+14.     Aliquam faucibus mauris et auctor consequat.
+15.     Aenean eget lorem id nibh vestibulum congue ut at sapien.
+16.     Vivamus ut arcu vitae quam molestie facilisis.
+17. 
+18.     In fermentum purus in auctor pulvinar.
+19.     Vivamus ultrices ante et augue volutpat vestibulum.
+20.     Sed ac enim lacinia, tincidunt felis at, vulputate quam.
+21.     Nunc sed turpis eu lectus scelerisque ultricies.
+22.     Nulla nec elit accumsan, lacinia lorem ut, ullamcorper augue.
+23. 

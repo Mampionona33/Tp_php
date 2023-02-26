@@ -13,7 +13,7 @@ foreach ($text as $key => $value) {
 };
 echo '<h4> Le fichier original a : ' . $nombreLigne . ' lignes </h4><br/>';
 echo '<hr/>';
-echo '<h4> Le fichier de sortie a : ' . count($evenLine)  . ' lignes </h4><br/>';
+echo '<p> Le fichier de sortie a : ' . count($evenLine)  . ' lignes </p><br/>';
 
 foreach ($evenLine as $key => $value) {
     echo $evenLine[$key] . '<br/>';

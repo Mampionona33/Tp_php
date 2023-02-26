@@ -1,7 +1,7 @@
 <?php
 
-$folderName = 'myFolder';
 extract($_POST);
+extract($_COOKIE);
 
 echo '
 <!DOCTYPE html>
@@ -14,37 +14,47 @@ echo '
   </head>
   <body>
     <div style="display: flex; flex-direction: row; gap: 1rem">
-      <form action="page1.php" method="post">
+      <form
+        action="page1.php"
+        method="post"
+        style="display: flex; flex-direction: row; gap: 1rem"
+      >
+        <label for="folderName">Nom du dossier</label>
+        <input type="text" required name="folderName" />
         <input type="submit" name="createFolder" value="Create folder" />
       </form>
       <form action="page1.php" method="post">
         <input type="submit" name="deleteFolder" value="Delete folder" />
       </form>
     </div>
-    <hr>
+    <hr />
   </body>
 </html>
 
 ';
 
-if (!is_dir($folderName)) {
-    if (isset($deleteFolder)) {
-        echo "There is no floder to delete. Please create a new one.";
-    } elseif (isset($createFolder)) {
+if (isset($folderName) && !is_dir($folderName)) {
+    if (isset($createFolder)) {
         if (mkdir("./$folderName", 0700, false, null)) {
-            echo "The folder $folderName has been successfully created !";
+            setcookie('folderToremove', $folderName);
+            echo "The folder <b> $folderName </b> has been successfully created !";
         } else {
             echo "Error when attempting to create the folder";
         }
     }
-} else {
+}
+
+if (isset($folderToremove)) {
     if (isset($deleteFolder)) {
-        if (rmdir("./$folderName")) {
-            echo "The folder has been successfully removed !";
+        if (rmdir("./$folderToremove")) {
+            setcookie('folderToremove', '');
+            echo "The folder <b> $folderToremove </b> has been successfully removed !";
         } else {
             echo "Error when attempting to delete the folder";
         }
-    } else {
-        echo "The folder alredy exist, click on delete button to remove it!!!";
+    }
+} else {
+    if (!isset($createFolder)) {
+        echo "There is no folder to delete. Please create one.";
     }
 }

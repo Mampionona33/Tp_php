@@ -1,23 +1,13 @@
 <?php
 
-$fileName = 'myCsv.csv';
+$fileName = 'csv/monFichier.csv';
 
-$list = array(
-  array('aaa', 'bbb', 'ccc', 'dddd'),
-  array('123', '456', '789'),
-  array('"aaa"', '"bbb"')
-);
+$db = file($fileName, 0, null);
 
-if (!is_file($fileName)) {
-  $fp = fopen($fileName, 'w');
-  foreach ($list as $field) {
-    fputcsv($fp, $field);
+foreach ($db as $key => $value) {
+  if (file_put_contents("csv/line_" . $key . ".txt", $value)) {
+    echo "line_" . $key . ".txt has been sucessully created <br/>";
+  } else {
+    echo "Error on creating" . $key . ".txt <br/>";
   }
-  fsync($fp);
-  fclose($fp);
-  header("Location: page2.php");
-  die();
-} else {
-  header("Location: page2.php");
-  die();
-}
+};

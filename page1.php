@@ -4,6 +4,7 @@ $fileName = 'csv/monFichier.csv';
 
 if (is_file($fileName)) {
   $db = file($fileName, 0, null);
+  array_map('unlink', glob("csv/*.txt"));
   foreach ($db as $key => $value) {
     if ($key != 0) {
       if (file_put_contents("csv/line_" . $key . ".txt", $value)) {

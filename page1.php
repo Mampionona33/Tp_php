@@ -2,7 +2,7 @@
 
 $fileName = 'csv/monFichier.csv';
 
-if (is_dir("csv") && is_file($fileName)) {
+if (is_file($fileName)) {
   $db = file($fileName, 0, null);
   foreach ($db as $key => $value) {
     if ($key != 0) {

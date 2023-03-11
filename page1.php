@@ -39,8 +39,9 @@ function tabContent($arrayName, $arrayLastName)
         echo '<tr> <td>' . $arrayName[$i] . '</td> <td> ' . $arrayLastName[$i] .
 
             "<td>
-            <form action=\"detail.php\" method=\"post\">
-              <input type=\"submit\" value=\"Detail\" name=\"details\" />
+            <form action=\"detail.php\" method=\"post\"> 
+                <input type=\"hidden\" name=\"key\" value=\"$i\" />            
+              <input type=\"submit\" value=\"Details\" name=\"details\" />
             </form>
           </td>
          </td> </tr>";

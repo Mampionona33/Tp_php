@@ -20,7 +20,7 @@ if (isset($key)) {
 
 echo '
 <hr/>
-<form action="page1.php" method="post">
+<form action="page1.php" method="get">
         <input type="submit" value="Return" />
 </form>
 ';

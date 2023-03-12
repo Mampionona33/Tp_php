@@ -29,7 +29,7 @@ if (isset($key)) {
 
 echo '
 <hr/>
-<form action="page1.php" method="get">
+<form action="page1.php" method="Post">
         <input type="submit" value="Return" />
 </form>
 ';

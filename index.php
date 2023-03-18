@@ -19,11 +19,12 @@ $fileName = 'csv/monFichier.csv';
 $name = [];
 $lastName = [];
 
+
 include_once('head.php');
 
 echo '
 <div style="display: flex; gap:1rem">
-<form action="post">
+<form action="">
     <input type="submit" value="Delete selected"> 
   </form>
   

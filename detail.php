@@ -30,8 +30,8 @@ echo '
 <hr/>
 <div class="box">
     <a href="/tp_php">Return</a>
-    <form action="">
-        <input type="submit" value="Delete">
+    <form action="/index.php" methode="post" >
+        <input type="submit" value="Delete" id=' . $id . ' >
     </form>
 </div>
 ';

@@ -5,6 +5,13 @@ créer un tableau avec titre
 Nom Prenom Detail
 En cliquant sur le detail, 
 affiche tout les detail du fichier text correpondant
+
+1 - créer bouton delete pour chaque ligne pour supprimer la ligne dans le csv
+2 - créer bouton delete pour la page detail pour supprimer la ligne dans le csv
+3 - créer bouton insert pour créer un nouvau ligne dans le csv
+4 - créer bouton PDF pour créer un fichier pdf de la page detail ou page liste
+5 - créer des case a cochée sur chaque ligne
+
 */
 
 $fileName = 'csv/monFichier.csv';

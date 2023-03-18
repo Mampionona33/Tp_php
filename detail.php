@@ -1,9 +1,10 @@
 <?php
-extract($_POST);
+extract($_GET);
 include_once("./detail_head.php");
+var_dump($id);
 
-if (isset($key)) {
-    $fileName = "./csv/line_" . $key . ".txt";
+if (isset($id)) {
+    $fileName = "./csv/line_" . $id . ".txt";
     if (is_file($fileName)) {
         $content = file_get_contents("./csv/line_" . $key . ".txt");
         $contentsArray = explode(';', $content);
@@ -29,7 +30,7 @@ if (isset($key)) {
 
 echo '
 <hr/>
-<form action="page1.php" method="Post">
+<form action="page1.php" method="get">
         <input type="submit" value="Return" />
 </form>
 ';

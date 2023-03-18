@@ -1,8 +1,8 @@
 <?php
-extract($_POST);
+include_once('getId.php');
 
-if (isset($key)) {
-  $fileName = "Line " . $key;
+if (isset($id)) {
+  $fileName = "Line " . $id;
 }
 
 echo "
@@ -14,8 +14,19 @@ echo "
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />
     <title>$fileName</title>
     <style>
-      table,th,td {
-        border: 1px solid;
+      a {
+        border-radius: 5px;
+        text-decoration: none;
+        background-color : #D0D0D7;
+        padding: 2px 5px;
+        color: black;
+        border: 1px solid grey;
+        font-size: 0.8rem;
+        font-family: sans-serif;
+      }
+      .box{
+        display: flex;
+        gap : 1rem;
       }
     </style>
   </head>

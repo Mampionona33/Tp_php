@@ -1,12 +1,10 @@
 <?php
-extract($_GET);
 include_once("./detail_head.php");
-var_dump($id);
 
 if (isset($id)) {
     $fileName = "./csv/line_" . $id . ".txt";
     if (is_file($fileName)) {
-        $content = file_get_contents("./csv/line_" . $key . ".txt");
+        $content = file_get_contents("./csv/line_" . $id . ".txt");
         $contentsArray = explode(';', $content);
 
         $name = isset($contentsArray[0]) ? $contentsArray[0]   : " ";
@@ -30,8 +28,11 @@ if (isset($id)) {
 
 echo '
 <hr/>
-<form action="page1.php" method="get">
-        <input type="submit" value="Return" />
-</form>
+<div class="box">
+    <a href="/tp_php">Return</a>
+    <form action="">
+        <input type="submit" value="Delete">
+    </form>
+</div>
 ';
 include_once('./footer.php');

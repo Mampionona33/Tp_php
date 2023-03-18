@@ -12,14 +12,23 @@ echo '
       table,th,td {
         border: 1px solid;
       }
+      a {
+        border-radius: 5px;
+        text-decoration: none;
+      }
     </style>
   </head>
   <body>
   <table>
-      <tr>
-        <th>Select</th>
-        <th>Name</th>
-        <th>Last Name</th>
-        <th>Acions</th>
-      </tr>
+    <tr>
+    <th style="display:flex">      
+      <form action="">
+      <input type="checkbox" name="" id=""> 
+      </form>
+      Select
+    </th>
+    <th>Name</th>
+    <th>Last Name</th>
+    <th>Acions</th>
+    </tr>
   ';

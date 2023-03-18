@@ -17,8 +17,9 @@ echo '
   <body>
   <table>
       <tr>
+        <th>Select</th>
         <th>Name</th>
         <th>Last Name</th>
-        <th>Details</th>
+        <th>Acions</th>
       </tr>
   ';

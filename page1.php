@@ -37,14 +37,18 @@ function tabContent($arrayName, $arrayLastName)
 {
     for ($i = 0; $i < count($arrayName); $i++) {
         $id = $i + 1;
-        echo '<tr> <td>' . $arrayName[$i] . '</td> <td> ' . $arrayLastName[$i] .
-
+        echo '<tr>
+                <td>
+                    <input type="checkbox" name="" id="" />
+                </td>
+                <td>'
+            . $arrayName[$i] . '
+                </td> 
+                <td> '
+            . $arrayLastName[$i] .
             "<td>
-            <form action=\"detail.php\" method=\"post\"> 
-                <input type=\"hidden\" name=\"key\" value=\"$id\" />            
-              <input type=\"submit\" value=\"Details\" name=\"details\" />
-            </form>
-          </td>
+                <a href=\"/detail.php/id=$id\">Details</a>                   
+            </td>
          </td> </tr>";
     }
 }

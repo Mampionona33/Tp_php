@@ -5,19 +5,19 @@ créer un tableau avec titre
 Nom Prenom Detail
 En cliquant sur le detail, 
 affiche tout les detail du fichier text correpondant
-
 1 - créer bouton delete pour chaque ligne pour supprimer la ligne dans le csv
 2 - créer bouton delete pour la page detail pour supprimer la ligne dans le csv
 3 - créer bouton insert pour créer un nouvau ligne dans le csv
 4 - créer bouton PDF pour créer un fichier pdf de la page detail ou page liste
 5 - créer des case a cochée sur chaque ligne
-
 */
 extract($_POST);
 $fileName = 'csv/monFichier.csv';
 
 $name = [];
 $lastName = [];
+
+var_dump($new_Name);
 
 include_once('head.php');
 echo '
@@ -31,7 +31,7 @@ echo '
       <input type="submit" value="PDF"> 
     </form>
     
-    <form action="">
+    <form action="add.php" method="post">
       <input type="submit" value="Add new">
     </form>
   </div>
@@ -63,16 +63,16 @@ if (is_file($fileName)) {
         $line = explode(';', $value);
 
         $name = $line[0];
-        $lastName =  $line[1];
+        $lastName = $line[1];
         echo
-        '<tr>
+          '<tr>
           <td> <input type="checkbox" /> </td> 
           <td>' . $name . '</td> 
           <td> ' . $lastName . '</td>
           <td>          
-          <form action="detail.php" methode="get">
-            <input type="hidden" name="id" value=' . $key . '>
-            <input type="submit" value="Details">
+          <form action="detail.php" methode="get" style="display: flex; flex-direction: row">
+            <input type="hidden" name="id" value=' . $key . ' ">
+            <input type="submit" value="Details" >
           </form>
           </td>
           </tr>';
@@ -80,7 +80,8 @@ if (is_file($fileName)) {
         echo "Error on creating" . $key . ".txt <br/>";
       }
     }
-  };
+  }
+  ;
 } else {
   echo "The file dose not exist";
 }

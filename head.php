@@ -12,6 +12,11 @@ echo '
       table,th,td {
         border: 1px solid;
       }
+      .sticky {
+        position:sticky; 
+        background-color: #fff; 
+        padding-top: 0.5rem
+      }
       a {
         border-radius: 5px;
         text-decoration: none;
@@ -20,15 +25,15 @@ echo '
   </head>
   <body>
   <table>
-    <tr>
-    <th style="display:flex">      
-      <form action="">
-      <input type="checkbox" name="" id=""> 
-      </form>
-      Select
+    <tr >
+    <th >      
+    <form action="" >
+      <input type="checkbox" name="select" id=""> 
+      <label for="select">Select</label>
+    </form>
     </th>
-    <th>Name</th>
-    <th>Last Name</th>
-    <th>Acions</th>
+    <th >Name</th>
+    <th >Last Name</th>
+    <th >Acions</th>
     </tr>
   ';

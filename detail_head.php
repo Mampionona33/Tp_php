@@ -1,5 +1,5 @@
 <?php
-include_once('getId.php');
+extract($_GET);
 
 if (isset($id)) {
   $fileName = "Line " . $id;

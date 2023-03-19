@@ -29,9 +29,12 @@ if (isset($id)) {
 echo '
 <hr/>
 <div class="box">
-    <a href="/tp_php">Return</a>
-    <form action="/index.php" methode="post" >
-        <input type="submit" value="Delete" id=' . $id . ' >
+    <form action="page1.php" method="post" >
+        <input type="submit" value="Return" >
+    </form>
+    <form action="page1.php" method="POST" >
+        <input type="hidden" name="delete_id" value="' . $id . '">
+        <input type="submit" value="Delete" >
     </form>
 </div>
 ';

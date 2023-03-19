@@ -13,35 +13,49 @@ affiche tout les detail du fichier text correpondant
 5 - créer des case a cochée sur chaque ligne
 
 */
-
+extract($_POST);
 $fileName = 'csv/monFichier.csv';
+
 
 $name = [];
 $lastName = [];
 
 
 include_once('head.php');
-
 echo '
-<div style="display: flex; gap:1rem">
-<form action="">
-    <input type="submit" value="Delete selected"> 
-  </form>
-  
-  <form action="">
-    <input type="submit" value="PDF"> 
-   </form>
+<div class="sticky" style="top:0">
+  <div style="display: flex; gap:1rem">
+    <form action="" >
+      <input type="submit" value="Delete selected"> 
+    </form>
+
+    <form action="">
+      <input type="submit" value="PDF"> 
+    </form>
     
-  <form action="">
-    <input type="submit" value="Add new">
-  </form>
+    <form action="">
+      <input type="submit" value="Add new">
+    </form>
+  </div>
+  <hr>
 </div>
-<hr>
-';
+  ';
 
 
 if (is_file($fileName)) {
   $db = file($fileName, 0, null);
+  $new_db = array();
+
+  if (isset($delete_id)) {
+    // var_dump($db);
+    // var_dump($delete_id);
+    foreach ($db as $key => $value) {
+      if ($key == $delete_id) {
+        unset($db[$delete_id]);
+      }
+    }
+  }
+
   array_map('unlink', glob("csv/*.txt"));
 
   foreach ($db as $key => $value) {
@@ -56,7 +70,12 @@ if (is_file($fileName)) {
           <td> <input type="checkbox" /> </td> 
           <td>' . $name . '</td> 
           <td> ' . $lastName . '</td>
-          <td> <a href="detail.php/id=' . $key . '" >Details</a> </td>
+          <td>          
+          <form action="detail.php" methode="get">
+            <input type="hidden" name="id" value=' . $key . '>
+            <input type="submit" value="Details">
+          </form>
+          </td>
           </tr>';
       } else {
         echo "Error on creating" . $key . ".txt <br/>";

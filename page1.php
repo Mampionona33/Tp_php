@@ -16,10 +16,8 @@ affiche tout les detail du fichier text correpondant
 extract($_POST);
 $fileName = 'csv/monFichier.csv';
 
-
 $name = [];
 $lastName = [];
-
 
 include_once('head.php');
 echo '
@@ -44,20 +42,21 @@ echo '
 
 if (is_file($fileName)) {
   $db = file($fileName, 0, null);
-  $new_db = array();
 
+  // delete line from db
   if (isset($delete_id)) {
-    // var_dump($db);
-    // var_dump($delete_id);
     foreach ($db as $key => $value) {
       if ($key == $delete_id) {
         unset($db[$delete_id]);
       }
+      file_put_contents($fileName, $db);
     }
   }
 
+  // delete all txt files
   array_map('unlink', glob("csv/*.txt"));
 
+  // Populate table form db
   foreach ($db as $key => $value) {
     if ($key != 0) {
       if (file_put_contents("csv/line_" . $key . ".txt", $value)) {

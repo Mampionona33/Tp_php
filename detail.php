@@ -33,8 +33,11 @@ echo '
         <input type="submit" value="Return" >
     </form>
     <form action="page1.php" method="POST" >
-        <input type="hidden" name="delete_id" value="' . $id . '">
-        <input type="submit" value="Delete" >
+    <input type="hidden" name="delete_id" value="' . $id . '">
+    <input type="submit" value="Delete" >
+    </form>
+    <form action="" method="post" >
+        <input type="submit" value="PDF" >
     </form>
 </div>
 ';

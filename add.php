@@ -21,6 +21,47 @@
 
         }
 
+        .button {
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 8px;
+        }
+
+        .button:hover {
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        }
+
+        .danger {
+            background-color: red;
+            color: #fff;
+        }
+
+        .primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .info {
+            background-color: #17a2b8;
+            color: #fff;
+        }
+
+        .success {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .secondary {
+            background-color: #565e64;
+            color: #fff;
+        }
+
+        .box {
+            display: flex;
+            gap: 1rem;
+        }
+
         .form {
             position: absolute;
             top: 50%;
@@ -42,7 +83,7 @@
             display: flex;
         }
 
-        .button {
+        .button_container {
             display: flex;
             justify-content: center;
             gap: 1rem;
@@ -75,9 +116,9 @@
             <input type="text" name="new_address" id="new_address">
             <label for="new_tel">tel</label>
             <input type="text" name="new_tel" id="tel">
-            <div class="button">
-                <input type="reset" value="Restart">
-                <input type="submit" value="Submit">
+            <div class="button_container">
+                <input class="button secondary" type="reset" value="Reset">
+                <input class="button primary" type="submit" value="Submit">
             </div>
         </form>
     </div>

@@ -1,5 +1,7 @@
 <?php
 echo '
-</body>
+            </table>
+        </form>
+    </body>
 </html>
 ';

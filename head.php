@@ -65,15 +65,18 @@
 </head>
 
 <body>
+  <form action="page1.php" method="post">
   <table>
-    <tr>
-      <th>
-        <form action="">
-          <input type="checkbox" name="select" onchange="checkAll(this)">
-          <label for="select">Select</label>
-        </form>
-      </th>
-      <th>Name</th>
-      <th>Last Name</th>
-      <th>Acions</th>
-    </tr>
+    <thead>
+      <tr>
+        <th>
+          <form action="">
+            <input type="checkbox" name="select" onchange="checkAll(this)">
+            <label for="select">Select</label>
+          </form>
+        </th>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>Acions</th>
+      </tr>
+    </thead>

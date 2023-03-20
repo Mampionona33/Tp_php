@@ -69,9 +69,9 @@
             grid-template-columns: repeat(2, auto);
             padding: 2rem;
             border-radius: 25px;
+            background-color: #D3D3D3;
             gap: 1rem;
-            -webkit-box-shadow: 0px 0px 3px 1px #000000;
-            box-shadow: 0px 0px 3px 1px #000000;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
         }
 
         .sex {
@@ -114,7 +114,7 @@
             </div>
             <label for="new_address">Adress</label>
             <input type="text" name="new_address" id="new_address">
-            <label for="new_tel">tel</label>
+            <label for="new_tel">Tel</label>
             <input type="text" name="new_tel" id="tel">
             <div class="button_container">
                 <input class="button secondary" type="reset" value="Reset">

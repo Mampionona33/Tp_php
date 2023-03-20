@@ -38,6 +38,10 @@ if (isset($_POST['new_address'])) {
 
   $new_address = $_POST['new_address'];
 }
+if (isset($_POST['delete_ids'])) {
+  $delete_list = $_POST['delete_ids'];
+  var_dump($delete_list);
+}
 
 $new_line = "";
 
@@ -54,11 +58,9 @@ $lastName = [];
 include_once('head.php');
 echo '
 <div class="sticky" style="top:0">
-  <div style="display: flex; gap:1rem">
-       
-    <form action="" >
-      <input class="button danger" type="submit" value="Delete selected"> 
-    </form>
+  <div style="display: flex; gap:1rem">       
+    
+    <input class="button danger" type="submit" value="Delete selected">     
 
     <form action="">
       <input class="button info" type="submit" value="PDF"> 
@@ -111,6 +113,7 @@ if (is_file($fileName)) {
   // delete all txt files
   array_map('unlink', glob("csv/*.txt"));
 
+
   // Populate table form all txt files
   foreach ($db as $key => $value) {
     if ($key != 0) {
@@ -121,7 +124,7 @@ if (is_file($fileName)) {
         $lastName = $line[1];
         echo
           '<tr>
-          <td> <input type="checkbox" /> </td> 
+          <td> <input type="checkbox" name="delete_ids[]" value=' . $name . ' /> </td> 
           <td>' . $name . '</td> 
           <td> ' . $lastName . '</td>
           <td >

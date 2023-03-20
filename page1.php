@@ -11,6 +11,9 @@ affiche tout les detail du fichier text correpondant
 4 - créer bouton PDF pour créer un fichier pdf de la page detail ou page liste
 5 - créer des case a cochée sur chaque ligne
 */
+$server = $_SERVER['SERVER_NAME'];
+$uri = $_SERVER['REQUEST_URI'];
+$based_url = "http://" . $server . $uri;
 
 $fileName = 'csv/monFichier.csv';
 if (isset($_POST['delete_id'])) {
@@ -75,11 +78,13 @@ echo '
   ';
 
 
+
 if (is_file($fileName)) {
   $db = file($fileName, 0, null);
 
   // delete line from db
   if (isset($delete_id)) {
+    var_dump($delete_id);
     foreach ($db as $key => $value) {
       if ($key == $delete_id) {
         unset($db[$delete_id]);
@@ -87,7 +92,7 @@ if (is_file($fileName)) {
       file_put_contents($fileName, $db);
     }
     // reinitialize $delete_id
-    header("Location:http://localhost:8000/page1.php");
+    header("Location:$based_url");
   }
 
   // Add new line from add page
@@ -106,8 +111,14 @@ if (is_file($fileName)) {
       }
     }
     $db = array_merge($db, $temp_data);
-    file_put_contents($fileName, $db);
-    header("Location:http://localhost:8000/page1.php");
+    unlink($fileName);
+    if (file_put_contents($fileName, $db)) {
+      var_dump(file_get_contents($fileName));
+    } else {
+      echo 'error on add new line';
+    }
+
+    header("Location:$based_url");
   }
 
   // delete all txt files

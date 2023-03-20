@@ -21,6 +21,24 @@ echo '
         border-radius: 5px;
         text-decoration: none;
       }
+      .button{
+        cursor:pointer;
+        border:none;
+        border-radius: 5px;
+        padding: 5px 8px;
+      }
+      .danger{
+        background-color:red;
+        color: #fff;
+      }
+      .primary{
+        background-color:#007bff;
+        color: #fff;
+      }
+      .info{
+        background-color:#17a2b8;
+        color: #fff;
+      }
     </style>
   </head>
   <body>

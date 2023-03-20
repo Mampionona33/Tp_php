@@ -11,28 +11,42 @@ affiche tout les detail du fichier text correpondant
 4 - créer bouton PDF pour créer un fichier pdf de la page detail ou page liste
 5 - créer des case a cochée sur chaque ligne
 */
-extract($_POST);
+
 $fileName = 'csv/monFichier.csv';
+$delete_id = $_POST['delete_id'];
+$new_Name = $_POST['new_Name'];
+$new_lastName = $_POST['new_lastName'];
+$new_Age = $_POST['new_Age'];
+$new_Sex = $_POST['new_Sex'];
+$new_tel = $_POST['new_tel'];
+$new_address = $_POST['new_address'];
+
+
+isset($new_Name) ? $new_line .= $new_Name . ';' : ';';
+isset($new_lastName) ? $new_line .= $new_lastName . ';' : ';';
+isset($new_Age) ? $new_line .= $new_Age . ';' : ';';
+isset($new_Sex) ? $new_line .= $new_Sex . ';' : ';';
+isset($new_tel) ? $new_line .= $new_tel . ';' : ';';
+isset($new_address) ? $new_line .= $new_address . "\n" : "\n";
 
 $name = [];
 $lastName = [];
-
-var_dump($new_Name);
 
 include_once('head.php');
 echo '
 <div class="sticky" style="top:0">
   <div style="display: flex; gap:1rem">
+       
     <form action="" >
-      <input type="submit" value="Delete selected"> 
+      <input class="button danger" type="submit" value="Delete selected"> 
     </form>
 
     <form action="">
-      <input type="submit" value="PDF"> 
+      <input class="button info" type="submit" value="PDF"> 
     </form>
-    
+  
     <form action="add.php" method="post">
-      <input type="submit" value="Add new">
+      <input class="button primary" type="submit" value="Add new">
     </form>
   </div>
   <hr>
@@ -51,12 +65,34 @@ if (is_file($fileName)) {
       }
       file_put_contents($fileName, $db);
     }
+    // reinitialize $delete_id
+    header("Location:http://localhost:8000/page1.php");
+  }
+
+  // Add new line from add page
+  if (str_word_count($new_line) > 0) {
+    $temp_data = [];
+    array_push($temp_data, $new_line);
+
+    foreach ($db as $key => $value) {
+      if ($key > 0) {
+        array_push($temp_data, $value);
+      }
+    }
+    foreach ($db as $key => $value) {
+      if ($key > 0) {
+        unset($db[$key]);
+      }
+    }
+    $db = array_merge($db, $temp_data);
+    file_put_contents($fileName, $db);
+    header("Location:http://localhost:8000/page1.php");
   }
 
   // delete all txt files
   array_map('unlink', glob("csv/*.txt"));
 
-  // Populate table form db
+  // Populate table form all txt files
   foreach ($db as $key => $value) {
     if ($key != 0) {
       if (file_put_contents("csv/line_" . $key . ".txt", $value)) {
@@ -69,11 +105,17 @@ if (is_file($fileName)) {
           <td> <input type="checkbox" /> </td> 
           <td>' . $name . '</td> 
           <td> ' . $lastName . '</td>
-          <td>          
-          <form action="detail.php" methode="get" style="display: flex; flex-direction: row">
-            <input type="hidden" name="id" value=' . $key . ' ">
-            <input type="submit" value="Details" >
-          </form>
+          <td >
+            <div style="display: flex; gap:0.5rem; margin: 0 0.2rem">         
+            <form action="page1.php" method="post" style="display: flex; flex-direction: row">
+              <input type="hidden" name="delete_id" value="' . $key . '">
+              <input type="submit" class="button danger" value="Delete" >
+            </form>
+            <form action="detail.php" methode="get" style=";display: flex; flex-direction: row">
+              <input type="hidden" name="id" value=' . $key . ' ">
+              <input type="submit" class="button primary" value="Details"  >
+            </form>
+            </div>         
           </td>
           </tr>';
       } else {

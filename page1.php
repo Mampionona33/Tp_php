@@ -1,5 +1,6 @@
 <?php
 
+
 /* 
 créer un tableau avec titre
 Nom Prenom Detail
@@ -13,7 +14,15 @@ affiche tout les detail du fichier text correpondant
 */
 $server = $_SERVER['SERVER_NAME'];
 $uri = $_SERVER['REQUEST_URI'];
-$based_url = "http://" . $server . $uri;
+$port = $_SERVER['SERVER_PORT'];
+
+if (isset($uri)) {
+  $based_url = "http://" . $server . $uri;
+}
+if (isset($_SERVER['SERVER_PORT'])) {
+  $based_url = "http://" . $server . ":" . $port . "/page1.php";
+}
+
 
 $fileName = 'csv/monFichier.csv';
 if (isset($_POST['delete_id'])) {
@@ -43,7 +52,6 @@ if (isset($_POST['new_address'])) {
 }
 if (isset($_POST['delete_ids'])) {
   $delete_list = $_POST['delete_ids'];
-  var_dump($delete_list);
 }
 
 $new_line = "";
@@ -84,7 +92,6 @@ if (is_file($fileName)) {
 
   // delete line from db
   if (isset($delete_id)) {
-    var_dump($delete_id);
     foreach ($db as $key => $value) {
       if ($key == $delete_id) {
         unset($db[$delete_id]);
@@ -93,6 +100,13 @@ if (is_file($fileName)) {
     }
     // reinitialize $delete_id
     header("Location:$based_url");
+  }
+
+  // delete selected
+  if (isset($delete_list) && count($delete_list) > 0) {
+    foreach ($delete_list as $key => $value) {
+      unset($db[$key]);
+    }
   }
 
   // Add new line from add page
@@ -135,7 +149,7 @@ if (is_file($fileName)) {
         $lastName = $line[1];
         echo
           '<tr>
-          <td> <input type="checkbox" name="delete_ids[]" value=' . $name . ' /> </td> 
+          <td> <input type="checkbox" name="delete_ids[]" value=' . $key . ' /> </td> 
           <td>' . $name . '</td> 
           <td> ' . $lastName . '</td>
           <td >

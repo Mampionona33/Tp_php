@@ -107,6 +107,9 @@ if (is_file($fileName)) {
     foreach ($delete_list as $key => $value) {
       unset($db[$key]);
     }
+    unlink($fileName);
+    file_put_contents($fileName, $db);
+    header("Location:$based_url");
   }
 
   // Add new line from add page

@@ -13,14 +13,33 @@ affiche tout les detail du fichier text correpondant
 */
 
 $fileName = 'csv/monFichier.csv';
-$delete_id = $_POST['delete_id'];
-$new_Name = $_POST['new_Name'];
-$new_lastName = $_POST['new_lastName'];
-$new_Age = $_POST['new_Age'];
-$new_Sex = $_POST['new_Sex'];
-$new_tel = $_POST['new_tel'];
-$new_address = $_POST['new_address'];
+if (isset($_POST['delete_id'])) {
+  $delete_id = $_POST['delete_id'];
+}
+if (isset($_POST['new_Name'])) {
+  $new_Name = $_POST['new_Name'];
+}
+if (isset($_POST['new_lastName'])) {
+  $new_lastName = $_POST['new_lastName'];
+}
+if (isset($_POST['new_Age'])) {
 
+  $new_Age = $_POST['new_Age'];
+}
+if (isset($_POST['new_Sex'])) {
+
+  $new_Sex = $_POST['new_Sex'];
+}
+if (isset($_POST['new_tel'])) {
+  $new_tel = $_POST['new_tel'];
+
+}
+if (isset($_POST['new_address'])) {
+
+  $new_address = $_POST['new_address'];
+}
+
+$new_line = "";
 
 isset($new_Name) ? $new_line .= $new_Name . ';' : ';';
 isset($new_lastName) ? $new_line .= $new_lastName . ';' : ';';

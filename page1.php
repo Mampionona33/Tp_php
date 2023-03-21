@@ -105,7 +105,7 @@ if (is_file($fileName)) {
   // delete selected
   if (isset($delete_list) && count($delete_list) > 0) {
     foreach ($delete_list as $key => $value) {
-      unset($db[$key]);
+      unset($db[$value]);
     }
     unlink($fileName);
     file_put_contents($fileName, $db);

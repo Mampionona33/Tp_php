@@ -11,7 +11,7 @@ if (is_file($fileName)) {
 }
 
 
-if (isset($_POST["create_pdf_list"]) && count($db) > 0) {
+if (isset($_POST["download_pdf"]) || isset($_POST["preview_pdf"]) && count($db) > 0) {
     $pdf->AddPage();
     $pdf->SetFont("Arial", "B", 12);
     $pdf->SetRightMargin(20);
@@ -42,5 +42,9 @@ if (isset($_POST["create_pdf_list"]) && count($db) > 0) {
         }
     }
 }
-$pdf->Output();
+if (isset($_POST["download_pdf"])) {
+    $pdf->Output('D', "list name and last name.pdf", false);
+} else {
+    $pdf->Output();
+}
 ?>

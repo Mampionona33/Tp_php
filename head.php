@@ -66,17 +66,17 @@
 
 <body>
   <form action="page1.php" method="post">
-  <table>
-    <thead>
-      <tr>
-        <th>
-          <form action="">
-            <input type="checkbox" name="select" onchange="checkAll(this)">
-            <label for="select">Select</label>
-          </form>
-        </th>
-        <th>Name</th>
-        <th>Last Name</th>
-        <th>Acions</th>
-      </tr>
-    </thead>
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <form action="page1.php" method="post">
+              <input type="checkbox" name="select" onchange="checkAll(this)">
+              <label for="select">Select</label>
+            </form>
+          </th>
+          <th>Name</th>
+          <th>Last Name</th>
+          <th>Acions</th>
+        </tr>
+      </thead>

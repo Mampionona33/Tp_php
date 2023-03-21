@@ -80,6 +80,6 @@
           </th>
           <th>Name</th>
           <th>Last Name</th>
-          <th>Acions</th>
+          <th>Actions</th>
         </tr>
       </thead>

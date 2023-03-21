@@ -61,6 +61,9 @@
         }
       }
     }
+    function confirmDelete() {
+      return confirm('Are you sure to delete this row ?');
+    }
   </script>
 </head>
 
@@ -70,7 +73,7 @@
       <thead>
         <tr>
           <th>
-            <form action="page1.php" method="post">
+            <form onsubmit="" action="page1.php" method="post">
               <input type="checkbox" name="select" onchange="checkAll(this)">
               <label for="select">Select</label>
             </form>

@@ -160,15 +160,18 @@ if (is_file($fileName)) {
           <td>' . $name . '</td> 
           <td> ' . $lastName . '</td>
           <td >
-            <div style="display: flex; gap:0.5rem; margin: 0 0.2rem">         
+            <div style="display: flex; gap:0.5rem; margin: 0 0.2rem">  
+
             <form action="page1.php" method="post" style="display: flex; flex-direction: row">
               <input type="hidden" name="delete_id" value="' . $key . '">
-              <input type="submit" class="button danger" value="Delete" >
+              <input type="submit" class="button danger"  value="Delete" onclick="return confirmDelete();" >
             </form>
-            <form action="detail.php" methode="get" style=";display: flex; flex-direction: row">
+
+            <form  action="detail.php" methode="get" style=";display: flex; flex-direction: row">
               <input type="hidden" name="id" value=' . $key . ' ">
               <input type="submit" class="button primary" value="Details"  >
             </form>
+
             </div>         
           </td>
           </tr>';

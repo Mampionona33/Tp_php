@@ -73,12 +73,12 @@ echo '
     
     <input class="button danger" type="submit" value="Delete selected">     
 
-    <form action="">
-      <input class="button info" type="submit" value="PDF"> 
+    <form action="pdf_list.php" method="post">
+      <input class="button info" type="submit" value="PDF" name="create_pdf_list"> 
     </form>
   
     <form action="add.php" method="post">
-      <input class="button primary" type="submit" value="Add new">
+      <input class="button primary" type="submit"  value="Add new">
     </form>
   </div>
   <hr>

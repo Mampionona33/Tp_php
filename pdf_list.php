@@ -1,6 +1,6 @@
 <?php
 require("fpdf/fpdf.php");
-
+ob_start();
 $pdf = new FPDF();
 $fileName = 'csv/monFichier.csv';
 
@@ -42,9 +42,10 @@ if (isset($_POST["download_pdf"]) || isset($_POST["preview_pdf"]) && count($db) 
         }
     }
 }
+
+ob_clean();
 if (isset($_POST["download_pdf"])) {
     $pdf->Output('D', "list name and last name.pdf", false);
 } else {
     $pdf->Output();
 }
-?>

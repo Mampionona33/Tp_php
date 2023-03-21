@@ -13,6 +13,11 @@ echo "
     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />
     <title>$fileName</title>
+    <script>
+      function confirmDelete() {
+        return confirm('Do you really want to delete ?');
+      }
+    </script>
     <style>
       a {
         border-radius: 5px;

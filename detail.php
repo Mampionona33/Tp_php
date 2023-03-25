@@ -42,6 +42,11 @@ echo '
             <input class="button info" type="submit" value="Download PDF" name="download_pdf"> 
         </form>
         
+        <form action="formulaire.php" method="post">
+            <input type="hidden" name="id" value="' . $id . '">
+            <input class="button info" type="submit" value="Edit" name="edit"> 
+        </form>
+        
         <form action="pdf_detail.php" method="get">
             <input type="hidden" name="id" value="' . $id . '">
         <input class="button info" type="submit" value="Preview PDF" name="preview_pdf"> 

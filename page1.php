@@ -44,7 +44,6 @@ if (isset($_POST['new_Sex'])) {
 }
 if (isset($_POST['new_tel'])) {
   $new_tel = $_POST['new_tel'];
-
 }
 if (isset($_POST['new_address'])) {
 
@@ -81,7 +80,7 @@ echo '
       <input class="button info" type="submit" value="Preview PDF" name="preview_pdf"> 
     </form>
   
-    <form action="add.php" method="post">
+    <form action="formulaire.php" method="post">
       <input class="button primary" type="submit"  value="Add new">
     </form>
   </div>
@@ -155,7 +154,7 @@ if (is_file($fileName)) {
         $name = $line[0];
         $lastName = $line[1];
         echo
-          '<tr>
+        '<tr>
           <td> <input type="checkbox" name="delete_ids[]" value=' . $key . ' /> </td> 
           <td>' . $name . '</td> 
           <td> ' . $lastName . '</td>
@@ -179,8 +178,7 @@ if (is_file($fileName)) {
         echo "Error on creating" . $key . ".txt <br/>";
       }
     }
-  }
-  ;
+  };
 } else {
   echo "The file dose not exist";
 }

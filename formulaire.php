@@ -27,7 +27,7 @@ if (isset($_GET['edit']) && isset($_GET['id'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add</title>
+    <title>Formulaire</title>
     <style>
         body {
             margin: 0;
@@ -113,6 +113,7 @@ if (isset($_GET['edit']) && isset($_GET['id'])) {
             grid-column: 1/3;
         }
     </style>
+
 </head>
 
 <body>
@@ -127,11 +128,15 @@ if (isset($_GET['edit']) && isset($_GET['id'])) {
             <label for="sex">Sex</label>
             <div class="sex">
                 <div class="sex_container">
-                    <input type="radio" name="new_Sex" id="female" value="F" checked>
+                    <input type="radio" name="new_Sex" id="female" value="F" <?php if ($sex == "F") {
+                                                                                    echo "checked";
+                                                                                } ?>>
                     <label for="new_Sex">F</label>
                 </div>
                 <div class="sex_container">
-                    <input type="radio" name="new_Sex" id="male" value="M">
+                    <input type="radio" name="new_Sex" id="male" value="M" <?php if ($sex == "M") {
+                                                                                echo "checked";
+                                                                            } ?>>
                     <label for="new_Sex">M</label>
                 </div>
             </div>

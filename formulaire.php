@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+if (isset($_GET['edit']) && isset($_GET['id'])) {
+    // Get edite's id
+    $action = $_GET["edit"];
+    $edit_id = $_GET['id'];
+
+    // Get db
+    $fileName = "./csv/line_" . $edit_id . ".txt";;
+    if (isset($fileName)) {
+        $content = file_get_contents("./csv/line_" . $edit_id . ".txt");
+        $contentsArray = explode(';', $content);
+
+        $name = isset($contentsArray[0]) ? $contentsArray[0] : " ";
+        $lastName = isset($contentsArray[1]) ? $contentsArray[1] : " ";
+        $age = isset($contentsArray[2]) ? $contentsArray[2] : " ";
+        $sex = isset($contentsArray[3]) ? $contentsArray[3] : " ";
+        $tel = isset($contentsArray[4]) ? $contentsArray[4] : " ";
+        $adress = isset($contentsArray[5]) ? $contentsArray[5] : " ";
+    }
+}
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +34,7 @@
             padding: 0;
             box-sizing: border-box;
         }
+
 
         .container {
             display: flex;
@@ -96,11 +119,11 @@
     <div class="container">
         <form class="form" action="page1.php" method="post">
             <label for="new_Name">Name</label>
-            <input type="text" name="new_Name" id="name" required>
+            <input type="text" name="new_Name" id="name" value="<?php echo $name ?>" required>
             <label for="new_lastName">Last name</label>
-            <input type="text" name="new_lastName" id="lastName" required>
+            <input type="text" name="new_lastName" id="lastName" value="<?php echo $lastName ?>" required>
             <label for="new_Age">Age</label>
-            <input type="number" name="new_Age" id="age" min=1 required>
+            <input type="number" name="new_Age" id="age" min=1 value="<?php echo $age ?>" required>
             <label for="sex">Sex</label>
             <div class="sex">
                 <div class="sex_container">
@@ -113,9 +136,9 @@
                 </div>
             </div>
             <label for="new_address">Adress</label>
-            <input type="text" name="new_address" id="new_address">
+            <input type="text" name="new_address" id="new_address" value="<?php echo $adress ?>">
             <label for="new_tel">Tel</label>
-            <input type="text" name="new_tel" id="tel">
+            <input type="text" name="new_tel" id="tel" value="<?php echo $tel ?>">
             <div class="button_container">
                 <input class="button secondary" type="reset" value="Reset">
                 <input class="button primary" type="submit" value="Submit">

@@ -1,1 +1,1 @@
-James ;Gosling;50;M;;Isotry
+Dennis ;Ritchie;57;M;;

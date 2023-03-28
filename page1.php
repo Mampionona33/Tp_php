@@ -16,6 +16,8 @@ $server = $_SERVER['SERVER_NAME'];
 $uri = $_SERVER['REQUEST_URI'];
 $port = $_SERVER['SERVER_PORT'];
 
+
+
 if (isset($uri)) {
   $based_url = "http://" . $server . $uri;
 }
@@ -28,6 +30,14 @@ $fileName = 'csv/monFichier.csv';
 if (isset($_POST['delete_id'])) {
   $delete_id = $_POST['delete_id'];
 }
+
+if (isset($_POST["action"]) && isset($_POST["edit_id"])) {
+  // var_dump($_POST);
+  $action = $_POST["action"];
+  $edit_id = $_POST["edit_id"];
+}
+
+
 if (isset($_POST['new_Name'])) {
   $new_Name = $_POST['new_Name'];
 }
@@ -92,7 +102,6 @@ echo '
 
 if (is_file($fileName)) {
   $db = file($fileName, 0, null);
-
   // delete line from db
   if (isset($delete_id)) {
     foreach ($db as $key => $value) {
@@ -102,7 +111,7 @@ if (is_file($fileName)) {
       file_put_contents($fileName, $db);
     }
     // reinitialize $delete_id
-    header("Location:$based_url");
+    // header("Location:$based_url");
   }
 
   // delete selected
@@ -112,11 +121,14 @@ if (is_file($fileName)) {
     }
     unlink($fileName);
     file_put_contents($fileName, $db);
-    header("Location:$based_url");
+    // header("Location:$based_url");
   }
 
   // edit
-  
+  if (isset($action) && preg_match("/edit/i", $action) && isset($edit_id)) {
+    var_dump($action);
+    var_dump($edit_id);
+  }
 
   // Add new line from add page
   if (str_word_count($new_line) > 0) {
@@ -136,12 +148,12 @@ if (is_file($fileName)) {
     $db = array_merge($db, $temp_data);
     unlink($fileName);
     if (file_put_contents($fileName, $db)) {
-      var_dump(file_get_contents($fileName));
+      file_get_contents($fileName);
     } else {
       echo 'error on add new line';
     }
 
-    header("Location:$based_url");
+    // header("Location:$based_url");
   }
 
   // delete all txt files
@@ -157,7 +169,7 @@ if (is_file($fileName)) {
         $name = $line[0];
         $lastName = $line[1];
         echo
-        '<tr>
+          '<tr>
           <td> <input type="checkbox" name="delete_ids[]" value=' . $key . ' /> </td> 
           <td>' . $name . '</td> 
           <td> ' . $lastName . '</td>
@@ -181,7 +193,8 @@ if (is_file($fileName)) {
         echo "Error on creating" . $key . ".txt <br/>";
       }
     }
-  };
+  }
+  ;
 } else {
   echo "The file dose not exist";
 }

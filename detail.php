@@ -44,7 +44,7 @@ echo '
         
         <form action="formulaire.php" method="GET">
             <input type="hidden" name="id" value="' . $id . '">
-            <input class="button info" type="submit" value="Edit" name="edit"> 
+            <input class="button info" type="submit" value="Edit" name="action"> 
         </form>
         
         <form action="pdf_detail.php" method="get">

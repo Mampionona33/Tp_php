@@ -2,13 +2,14 @@
 <html lang="en">
 
 <?php
-if (isset($_GET['edit']) && isset($_GET['id'])) {
+if (isset($_GET['action']) && isset($_GET['id'])) {
     // Get edite's id
-    $action = $_GET["edit"];
+    $action = $_GET["action"];
     $edit_id = $_GET['id'];
 
     // Get db
-    $fileName = "./csv/line_" . $edit_id . ".txt";;
+    $fileName = "./csv/line_" . $edit_id . ".txt";
+    ;
     if (isset($fileName)) {
         $content = file_get_contents("./csv/line_" . $edit_id . ".txt");
         $contentsArray = explode(';', $content);
@@ -119,6 +120,8 @@ if (isset($_GET['edit']) && isset($_GET['id'])) {
 <body>
     <div class="container">
         <form class="form" action="page1.php" method="post">
+            <?php echo isset($edit_id) ? "<input type=\"hidden\" name=\"edit_id\" value=$edit_id>" : "" ?>
+            <?php echo isset($action) ? "<input type=\"hidden\" name=\"action\" value=$action>" : "" ?>
             <label for="new_Name">Name</label>
             <input type="text" name="new_Name" id="name" value="<?php echo $name ?>" required>
             <label for="new_lastName">Last name</label>
@@ -128,15 +131,12 @@ if (isset($_GET['edit']) && isset($_GET['id'])) {
             <label for="sex">Sex</label>
             <div class="sex">
                 <div class="sex_container">
-                    <input type="radio" name="new_Sex" id="female" value="F" <?php if ($sex == "F") {
-                                                                                    echo "checked";
-                                                                                } ?>>
+                    <input type="radio" name="new_Sex" id="female" value="F" checked <?php echo ($sex == "F" && $action == "edit") ? "checked" : ""; ?>>
+
                     <label for="new_Sex">F</label>
                 </div>
                 <div class="sex_container">
-                    <input type="radio" name="new_Sex" id="male" value="M" <?php if ($sex == "M") {
-                                                                                echo "checked";
-                                                                            } ?>>
+                    <input type="radio" name="new_Sex" id="male" value="M" <?php echo ($sex == "F" && $action == "edit") ? "checked" : ""; ?>>
                     <label for="new_Sex">M</label>
                 </div>
             </div>

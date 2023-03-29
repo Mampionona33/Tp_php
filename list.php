@@ -23,8 +23,10 @@ if (is_file($fileName)) {
   $db = file($fileName, 0, null);
 }
 
+
 // handle formulair request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
   isset($_POST['new_Name']) ? $new_line .= $_POST['new_Name'] . ';' : ';';
   isset($_POST['new_lastName']) ? $new_line .= $_POST['new_lastName'] . ';' : ';';
   isset($_POST['new_Age']) ? $new_line .= $_POST['new_Age'] . ';' : ';';
@@ -96,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: list.php");
   }
 
-  // Handle Find
+  // Handle search
   if (isset($_POST['search'])) {
     $search = $_POST['search'];
     // $temp = array(0 => "Name;LastName;age;sex;tel;address");
@@ -126,10 +128,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input class="button danger" type="submit" id="delete_selected" name="delete_selected" value="Delete selected">
         <input class="button info" id="download_pdf" type="submit" value="Download PDF" name="download_pdf" onclick="this.form.action='pdf_list.php'">
         <input class="button info" id="preview_pdf" type="submit" value="Preview PDF" name="preview_pdf" onclick="this.form.action='pdf_list.php'">
-        <input class="button primary" id="add_new" type="submit" value="Add new" onclick="this.form.action='formulaire.php'">
+        <input class="button primary" id="add_new" type="button" value="Add new">
         <input type="text" name="search" id="search" value="" placeholder="Find">
         <input type="button" class="button info" value="Search" id="submit_search">
-        <input type="submit" class="button info" value="Clear filter" name="clearFilter">
+        <input type="button" class="button info" value="Clear filter" id="clearFilter" name="clearFilter">
 
       </div>
       <hr>
@@ -197,6 +199,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </form>
 
   <script>
+    const mainForm = document.getElementById("mainForm");
+
     function checkAll(checkbox) {
       var checkboxes = document.getElementsByTagName('input');
       for (var i = 0; i < checkboxes.length; i++) {
@@ -204,30 +208,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           checkboxes[i].checked = checkbox.checked;
         }
       }
-    }
+    };
 
     function confirmDelete() {
       return confirm('Do you really want to delete?');
-    }
+    };
 
-    function findOnChange() {
+    // Search 
+    (() => {
       const inputFind = document.getElementById('search');
       const submitSearch = document.getElementById("submit_search");
-      let inputText = ""
-      inputFind.addEventListener("keyup", () => {
-        inputText = inputFind.value;
-        // console.log(inputText);
-      });
-      inputFind.addEventListener("keyup", () => {
-        inputText = inputFind.value;
-        // console.log(inputText);
-      })
+
       submitSearch.addEventListener('click', () => {
+        mainForm.setAttribute("action", "list.php");
+        console.log(mainForm);
         mainForm.submit();
       });
+    })();
 
-    }
+    // Clear filter
+    (() => {
+      const clearFilter = document.getElementById("clearFilter");
+      const inputFind = document.getElementById('search');
+      clearFilter.addEventListener("click", () => {
+        mainForm.setAttribute("action", "list.php");
+        mainForm.submit();
+      })
+    })();
 
-    findOnChange();
+    // Add new
+    (() => {
+      const add_new = document.getElementById("add_new");
+      add_new.addEventListener("click", () => {
+        mainForm.setAttribute("action", "formulaire.php");
+        console.log(mainForm);
+        mainForm.submit();
+      })
+    })();
   </script>
 </body>

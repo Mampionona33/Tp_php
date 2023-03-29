@@ -220,7 +220,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       submitSearch.addEventListener('click', () => {
         mainForm.setAttribute("action", "list.php");
-        console.log(mainForm);
         mainForm.submit();
       });
     })();

@@ -17,12 +17,45 @@ include './list_head.php';
 // définir les variables
 $fileName = 'csv/monFichier.csv';
 $new_line = '';
+
+
 if (is_file($fileName)) {
   $db = file($fileName, 0, null);
 }
 
 // handle formulair request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  isset($_POST['new_Name']) ? $new_line .= $_POST['new_Name'] . ';' : ';';
+  isset($_POST['new_lastName']) ? $new_line .= $_POST['new_lastName'] . ';' : ';';
+  isset($_POST['new_Age']) ? $new_line .= $_POST['new_Age'] . ';' : ';';
+  isset($_POST['new_Sex']) ? $new_line .= $_POST['new_Sex'] . ';' : ';';
+  isset($_POST['new_tel']) ? $new_line .= $_POST['new_tel'] . ';' : ';';
+  isset($_POST['new_address']) ? $new_line .= $_POST['new_address'] . "\n" : "\n";
+
+  // Handle add new line
+  if (str_word_count($new_line) > 0 && !isset($_POST['action'])) {
+    $temp_data = [];
+    array_push($temp_data, $new_line);
+
+    foreach ($db as $key => $value) {
+      if ($key > 0) {
+        array_push($temp_data, $value);
+      }
+    }
+    foreach ($db as $key => $value) {
+      if ($key > 0) {
+        unset($db[$key]);
+      }
+    }
+    $db = array_merge($db, $temp_data);
+    unlink($fileName);
+    if (file_put_contents($fileName, $db)) {
+      file_get_contents($fileName);
+    } else {
+      echo 'error on add new line';
+    }
+    header("Location: list.php");
+  }
 
   // Handle delete line
   if ($_POST["delete_id"]) {
@@ -49,6 +82,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       header("Location: list.php");
     }
   }
+
+  // Handle Edit from form
+  if (isset($_POST['action']) && preg_match("/edit/i", $_POST['action']) && isset($_POST['edit_id'])) {
+    $edit_id = $_POST['edit_id'];
+    foreach ($db as $key => $value) {
+      if ($key == $edit_id) {
+        $db[$key] = $new_line;
+      }
+    }
+    unlink($fileName);
+    file_put_contents($fileName, $db);
+    header("Location: list.php");
+  }
 }
 ?>
 
@@ -59,11 +105,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <input class="button danger" type="submit" id="delete_selected" name="delete_selected" value="Delete selected">
 
-        <input class="button info" id="download_pdf" type="submit" value="Download PDF" name="download_pdf">
+        <input class="button info" id="download_pdf" type="submit" value="Download PDF" name="download_pdf" onclick="this.form.action='pdf_list.php'">
 
-        <input class="button info" id="preview_pdf" type="submit" value="Preview PDF" name="preview_pdf">
+        <input class="button info" id="preview_pdf" type="submit" value="Preview PDF" name="preview_pdf" onclick="this.form.action='pdf_list.php'">
 
-        <input class="button primary" id="add_new" type="submit" value="Add new">
+        <input class="button primary" id="add_new" type="submit" value="Add new" onclick="this.form.action='formulaire.php'">
       </div>
       <hr>
     </div>

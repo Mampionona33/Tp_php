@@ -8,8 +8,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
     $edit_id = $_GET['id'];
 
     // Get db
-    $fileName = "./csv/line_" . $edit_id . ".txt";
-    ;
+    $fileName = "./csv/line_" . $edit_id . ".txt";;
     if (isset($fileName)) {
         $content = file_get_contents("./csv/line_" . $edit_id . ".txt");
         $contentsArray = explode(';', $content);
@@ -119,7 +118,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
 
 <body>
     <div class="container">
-        <form class="form" action="page1.php" method="post">
+        <form class="form" action="list.php" method="post">
             <?php echo isset($edit_id) ? "<input type=\"hidden\" name=\"edit_id\" value=$edit_id>" : "" ?>
             <?php echo isset($action) ? "<input type=\"hidden\" name=\"action\" value=$action>" : "" ?>
             <label for="new_Name">Name</label>
@@ -131,12 +130,12 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
             <label for="sex">Sex</label>
             <div class="sex">
                 <div class="sex_container">
-                    <input type="radio" name="new_Sex" id="female" value="F" checked <?php echo ($sex == "F" && $action == "edit") ? "checked" : ""; ?>>
+                    <input type="radio" name="new_Sex" id="female" value="F" checked <?php echo ($sex == "F") ? "checked" : ""; ?>>
 
                     <label for="new_Sex">F</label>
                 </div>
                 <div class="sex_container">
-                    <input type="radio" name="new_Sex" id="male" value="M" <?php echo ($sex == "F" && $action == "edit") ? "checked" : ""; ?>>
+                    <input type="radio" name="new_Sex" id="male" value="M" <?php echo ($sex == "M") ? "checked" : ""; ?>>
                     <label for="new_Sex">M</label>
                 </div>
             </div>

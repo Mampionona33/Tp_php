@@ -1,1 +1,1 @@
-Niklaus ;Wirth;89;M;034545655;Winterthour, Suisse
+Rasmus ;Lerdorf;54;M;03456656;Qeqertarsuaq 

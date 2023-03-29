@@ -1,1 +1,1 @@
-Larry ;Wall;68;M;;Los Angeles, Californie, États-Unis
+Bjarne ;Stroustrup;73;M;03400000;Aarhus

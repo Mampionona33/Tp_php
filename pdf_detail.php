@@ -38,9 +38,7 @@ if (isset($id)) {
             $x = $pdf_detail->GetX();
             $y = $pdf_detail->GetY();
 
-            // $pdf_detail->SetFillColor(224, 235, 255);
-            // $pdf_detail->SetTextColor(0);
-            // $pdf_detail->SetFont('');
+
             $pdf_detail->Cell($w_label, $height, "Name: ", 0, 0, "J", false);
             $pdf_detail->Cell($width, $height, $name, 0, 0, "J", false);
             $pdf_detail->Ln();

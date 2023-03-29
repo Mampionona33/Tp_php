@@ -21,6 +21,7 @@ $new_line = '';
 
 if (is_file($fileName)) {
   $db = file($fileName, 0, null);
+  array_shift($db);
 }
 
 
@@ -101,13 +102,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Handle search
   if (isset($_POST['search'])) {
     $search = $_POST['search'];
-    // $temp = array(0 => "Name;LastName;age;sex;tel;address");
     $temp = [];
     foreach ($db as $key => $value) {
-      if ($key > 0) {
-        if (preg_match_all("/$search/i", explode(";", $value)[0]) || preg_match("/$search/i", explode(";", $value)[1])) {
-          array_push($temp, $db[$key]);
-        }
+      if (preg_match_all("/$search/i", explode(";", $value)[0]) || preg_match("/$search/i", explode(";", $value)[1])) {
+        array_push($temp, $db[$key]);
       }
     }
     $db = $temp;
@@ -156,8 +154,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Delete all .txt files
         array_map('unlink', glob("csv/*.txt"));
 
-        foreach ($db as $key => $value) {
-          if ($key != 0) {
+        if (isset($_POST['search']) && count($db) > 0) {
+          foreach ($db as $key => $value) {
             // Create file.txt
             file_put_contents("csv/line_$key.txt", $value);
             $line = explode(";", $value);
@@ -169,23 +167,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "<td>$name</td>";
             echo "<td>$lastName</td>";
             echo "
-        <td>  
-          <div style=\"display: flex; gap:0.5rem; margin: 0 0.2rem\">
-            <form action=\"$delete_action\" method=\"post\" style=\"display: flex; flex-direction: row\">
-              <input type=\"hidden\" name=\"delete_id\" value=\"$key\">
-              <input type=\"submit\" class=\"button danger\" value=\"Delete\" onclick=\"return confirmDelete();\">
-              </form>
-              
-              <form action=\"detail.php\" methode=\"get\" style=\";display: flex; flex-direction: row\">
-              <input type=\"hidden\"  name=\"id\" value=$key  \">
-              <input type=\"submit\" class=\"button primary\" value=\"Details\">
-              </form>
-              </div>
-              </td>
-        </tr>
-        ";
+          <td>  
+            <div style=\"display: flex; gap:0.5rem; margin: 0 0.2rem\">
+              <form action=\"$delete_action\" method=\"post\" style=\"display: flex; flex-direction: row\">
+                <input type=\"hidden\" name=\"delete_id\" value=\"$key\">
+                <input type=\"submit\" class=\"button danger\" value=\"Delete\" onclick=\"return confirmDelete();\">
+                </form>
+                
+                <form action=\"detail.php\" methode=\"get\" style=\";display: flex; flex-direction: row\">
+                <input type=\"hidden\"  name=\"id\" value=$key  \">
+                <input type=\"submit\" class=\"button primary\" value=\"Details\">
+                </form>
+                </div>
+                </td>
+            </tr>
+          ";
           }
         }
+
         ?>
       </tbody>
     </table>

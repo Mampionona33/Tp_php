@@ -1,1 +1,1 @@
-Dennis ;Ritchie;57;F;0345666;boomm
+Dennis ;Ritchie;57;M;;test

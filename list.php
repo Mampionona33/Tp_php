@@ -97,7 +97,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 
   // Handle Find
-  var_dump($_POST);
+  if (isset($_POST['search'])) {
+    $search = $_POST['search'];
+    // $temp = array(0 => "Name;LastName;age;sex;tel;address");
+    $temp = [];
+    foreach ($db as $key => $value) {
+      if ($key > 0) {
+        if (preg_match_all("/$search/i", explode(";", $value)[0]) || preg_match("/$search/i", explode(";", $value)[1])) {
+          array_push($temp, $db[$key]);
+        }
+      }
+    }
+    $db = $temp;
+  }
+
+  // Handle Clear filter
+  if (isset($_POST['search']) && isset($_POST["clearFilter"])) {
+    header("Location: list.php");
+  }
 }
 ?>
 
@@ -110,10 +127,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input class="button info" id="download_pdf" type="submit" value="Download PDF" name="download_pdf" onclick="this.form.action='pdf_list.php'">
         <input class="button info" id="preview_pdf" type="submit" value="Preview PDF" name="preview_pdf" onclick="this.form.action='pdf_list.php'">
         <input class="button primary" id="add_new" type="submit" value="Add new" onclick="this.form.action='formulaire.php'">
-        <input type="text" name="find" id="find" value="" placeholder="Find">
+        <input type="text" name="search" id="search" value="" placeholder="Find">
+        <input type="button" class="button info" value="Search" id="submit_search">
+        <input type="submit" class="button info" value="Clear filter" name="clearFilter">
+
       </div>
       <hr>
     </div>
+
     <table>
       <thead>
         <tr>
@@ -166,6 +187,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ?>
       </tbody>
     </table>
+
+    <!-- If no data found on filter -->
+    <?php
+    if (isset($_POST['search']) && count($db) == 0) {
+      echo "No data found";
+    }
+    ?>
   </form>
 
   <script>
@@ -183,8 +211,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     function findOnChange() {
-      const inputFind = document.getElementById('find');
-      const mainForm = document.getElementById("mainForm");
+      const inputFind = document.getElementById('search');
+      const submitSearch = document.getElementById("submit_search");
       let inputText = ""
       inputFind.addEventListener("keyup", () => {
         inputText = inputFind.value;
@@ -194,7 +222,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         inputText = inputFind.value;
         // console.log(inputText);
       })
-      inputFind.addEventListener('change', () => {
+      submitSearch.addEventListener('click', () => {
         mainForm.submit();
       });
 

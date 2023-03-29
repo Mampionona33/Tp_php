@@ -65,6 +65,15 @@
     function confirmDelete() {
       return confirm('Do you really want to delete?');
     }
+
+    function formActionSwitch(inputId, action) {
+      document.getElementById(inputId).addEventListener("click", () => {
+        document.getElementById('mainForm').setAttribute("action", action)
+      });
+    }
+    formActionSwitch("download_pdf", "pdf_list.php");
+    formActionSwitch("preview_pdf", "pdf_list.php");
+    formActionSwitch("add_new", "formulaire.php");
   </script>
 </head>
 

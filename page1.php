@@ -76,30 +76,31 @@ $name = [];
 $lastName = [];
 
 include_once('head.php');
-echo '
+?>
+
 <div class="sticky" style="top:0">
-  <div style="display: flex; gap:1rem">       
-    
-    <input class="button danger" type="submit" value="Delete selected">     
+  <div style="display: flex; gap:1rem">
+
+    <input class="button danger" type="submit" value="Delete selected">
 
     <form action="pdf_list.php" method="post">
-      <input class="button info" type="submit" value="Download PDF" name="download_pdf"> 
+      <input class="button info" type="submit" value="Download PDF" name="download_pdf">
     </form>
 
     <form action="pdf_list.php" method="post">
-      <input class="button info" type="submit" value="Preview PDF" name="preview_pdf"> 
+      <input class="button info" type="submit" value="Preview PDF" name="preview_pdf">
     </form>
-  
+
     <form action="formulaire.php" method="post">
-      <input class="button primary" type="submit"  value="Add new">
+      <input class="button primary" type="submit" value="Add new">
     </form>
   </div>
   <hr>
 </div>
-  ';
 
 
 
+<?
 if (is_file($fileName)) {
   $db = file($fileName, 0, null);
   // delete line from db
@@ -169,32 +170,31 @@ if (is_file($fileName)) {
         $name = $line[0];
         $lastName = $line[1];
         echo
-          '<tr>
-          <td> <input type="checkbox" name="delete_ids[]" value=' . $key . ' /> </td> 
-          <td>' . $name . '</td> 
-          <td> ' . $lastName . '</td>
-          <td >
-            <div style="display: flex; gap:0.5rem; margin: 0 0.2rem">  
+        '<tr>
+  <td> <input type="checkbox" name="delete_ids[]" value=' . $key . ' /> </td>
+  <td>' . $name . '</td>
+  <td> ' . $lastName . '</td>
+  <td>
+    <div style="display: flex; gap:0.5rem; margin: 0 0.2rem">
 
-            <form action="page1.php" method="post" style="display: flex; flex-direction: row">
-              <input type="hidden" name="delete_id" value="' . $key . '">
-              <input type="submit" class="button danger"  value="Delete" onclick="return confirmDelete();" >
-            </form>
+      <form action="page1.php" method="post" style="display: flex; flex-direction: row">
+        <input type="hidden" name="delete_id" value="' . $key . '">
+        <input type="submit" class="button danger" value="Delete" onclick="return confirmDelete();">
+      </form>
 
-            <form  action="detail.php" methode="get" style=";display: flex; flex-direction: row">
-              <input type="hidden" name="id" value=' . $key . ' ">
-              <input type="submit" class="button primary" value="Details"  >
-            </form>
+      <form action="detail.php" methode="get" style=";display: flex; flex-direction: row">
+        <input type="hidden" name="id" value=' . $key . ' ">
+              <input type=" submit" class="button primary" value="Details">
+      </form>
 
-            </div>         
-          </td>
-          </tr>';
+    </div>
+  </td>
+</tr>';
       } else {
-        echo "Error on creating" . $key . ".txt <br/>";
+        echo "Error on creating" . $key . ".txt <br />";
       }
     }
-  }
-  ;
+  };
 } else {
   echo "The file dose not exist";
 }

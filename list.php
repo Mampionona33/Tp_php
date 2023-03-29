@@ -95,6 +95,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     file_put_contents($fileName, $db);
     header("Location: list.php");
   }
+
+  // Handle Find
+  var_dump($_POST);
 }
 ?>
 
@@ -104,12 +107,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div style="display: flex; gap:1rem">
 
         <input class="button danger" type="submit" id="delete_selected" name="delete_selected" value="Delete selected">
-
         <input class="button info" id="download_pdf" type="submit" value="Download PDF" name="download_pdf" onclick="this.form.action='pdf_list.php'">
-
         <input class="button info" id="preview_pdf" type="submit" value="Preview PDF" name="preview_pdf" onclick="this.form.action='pdf_list.php'">
-
         <input class="button primary" id="add_new" type="submit" value="Add new" onclick="this.form.action='formulaire.php'">
+        <input type="text" name="find" id="find" value="" placeholder="Find">
       </div>
       <hr>
     </div>
@@ -166,4 +167,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </tbody>
     </table>
   </form>
+
+  <script>
+    function checkAll(checkbox) {
+      var checkboxes = document.getElementsByTagName('input');
+      for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].type == "checkbox") {
+          checkboxes[i].checked = checkbox.checked;
+        }
+      }
+    }
+
+    function confirmDelete() {
+      return confirm('Do you really want to delete?');
+    }
+
+    function findOnChange() {
+      const inputFind = document.getElementById('find');
+      const mainForm = document.getElementById("mainForm");
+      let inputText = ""
+      inputFind.addEventListener("keyup", () => {
+        inputText = inputFind.value;
+        // console.log(inputText);
+      });
+      inputFind.addEventListener("keyup", () => {
+        inputText = inputFind.value;
+        // console.log(inputText);
+      })
+      inputFind.addEventListener('change', () => {
+        mainForm.submit();
+      });
+
+    }
+
+    findOnChange();
+  </script>
 </body>

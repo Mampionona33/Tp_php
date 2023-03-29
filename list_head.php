@@ -52,18 +52,5 @@
             color: #fff;
         }
     </style>
-    <script>
-        function checkAll(checkbox) {
-            var checkboxes = document.getElementsByTagName('input');
-            for (var i = 0; i < checkboxes.length; i++) {
-                if (checkboxes[i].type == "checkbox") {
-                    checkboxes[i].checked = checkbox.checked;
-                }
-            }
-        }
-
-        function confirmDelete() {
-            return confirm('Do you really want to delete?');
-        }
-    </script>
+   
 </head>

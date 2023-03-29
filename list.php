@@ -35,28 +35,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   isset($_POST['new_address']) ? $new_line .= $_POST['new_address'] . "\n" : "\n";
 
   // Handle add new line
-
-  function handleAdd()
-  {
-    global $new_line, $db, $unchande_db, $fileName;
-    if (str_word_count($new_line) > 0 && !isset($_POST['action'])) {
-      $db = array_merge([$new_line], $db);
-      $temp = [];
-      array_push($temp, array_shift($unchande_db), $db);
-      // unlink($fileName);
-      // var_dump($temp);
-      foreach ($temp as $key => $value) {
-        // var_dump($value);
-        // file_put_contents($fileName, extract($temp));
-      };
-      header("Location: list.php");
-      // if (unlink($fileName)) {
-      // var_dump($temp);
-      // file_put_contents($fileName, extract($temp));
-      // }
-    }
+  if (str_word_count($new_line) > 0 && !isset($_POST['action'])) {
+    $db = array_merge([$new_line], $db);
+    $temp = array_merge([array_shift($unchande_db)], $db);
+    unlink($fileName);
+    $val = "";
+    foreach ($temp as $key => $value) {
+      $val = $val .= $value;
+    };
+    file_put_contents($fileName, $val);
+    header("Location: list.php");
   }
-  handleAdd();
 
   // Handle delete line
   if ($_POST["delete_id"]) {

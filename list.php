@@ -18,12 +18,11 @@ include './list_head.php';
 $fileName = 'csv/monFichier.csv';
 $new_line = '';
 
-
 if (is_file($fileName)) {
+  $unchande_db = file($fileName, 0, null);
   $db = file($fileName, 0, null);
   array_shift($db);
 }
-
 
 // handle formulair request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -36,29 +35,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   isset($_POST['new_address']) ? $new_line .= $_POST['new_address'] . "\n" : "\n";
 
   // Handle add new line
-  if (str_word_count($new_line) > 0 && !isset($_POST['action'])) {
-    $temp_data = [];
-    array_push($temp_data, $new_line);
 
-    foreach ($db as $key => $value) {
-      if ($key > 0) {
-        array_push($temp_data, $value);
-      }
+  function handleAdd()
+  {
+    global $new_line, $db, $unchande_db, $fileName;
+    if (str_word_count($new_line) > 0 && !isset($_POST['action'])) {
+      $db = array_merge([$new_line], $db);
+      $temp = [];
+      array_push($temp, array_shift($unchande_db), $db);
+      // unlink($fileName);
+      // var_dump($temp);
+      foreach ($temp as $key => $value) {
+        // var_dump($value);
+        // file_put_contents($fileName, extract($temp));
+      };
+      header("Location: list.php");
+      // if (unlink($fileName)) {
+      // var_dump($temp);
+      // file_put_contents($fileName, extract($temp));
+      // }
     }
-    foreach ($db as $key => $value) {
-      if ($key > 0) {
-        unset($db[$key]);
-      }
-    }
-    $db = array_merge($db, $temp_data);
-    unlink($fileName);
-    if (file_put_contents($fileName, $db)) {
-      file_get_contents($fileName);
-    } else {
-      echo 'error on add new line';
-    }
-    header("Location: list.php");
   }
+  handleAdd();
 
   // Handle delete line
   if ($_POST["delete_id"]) {
@@ -154,19 +152,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Delete all .txt files
         array_map('unlink', glob("csv/*.txt"));
 
-        if (isset($_POST['search']) && count($db) > 0) {
-          foreach ($db as $key => $value) {
-            // Create file.txt
-            file_put_contents("csv/line_$key.txt", $value);
-            $line = explode(";", $value);
-            $name = $line[0];
-            $lastName = $line[1];
-            $delete_action = $_SERVER["PHP_SELF"];
-            echo "<tr>";
-            echo "<td> <input type=\"checkbox\" name=\"delete_ids[]\" value=\"$key\"> </td>";
-            echo "<td>$name</td>";
-            echo "<td>$lastName</td>";
-            echo "
+        foreach ($db as $key => $value) {
+          // Create file.txt
+          file_put_contents("csv/line_$key.txt", $value);
+          $line = explode(";", $value);
+          $name = $line[0];
+          $lastName = $line[1];
+          $delete_action = $_SERVER["PHP_SELF"];
+          echo "<tr>";
+          echo "<td> <input type=\"checkbox\" name=\"delete_ids[]\" value=\"$key\"> </td>";
+          echo "<td>$name</td>";
+          echo "<td>$lastName</td>";
+          echo "
           <td>  
             <div style=\"display: flex; gap:0.5rem; margin: 0 0.2rem\">
               <form action=\"$delete_action\" method=\"post\" style=\"display: flex; flex-direction: row\">
@@ -182,7 +179,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </td>
             </tr>
           ";
-          }
         }
 
         ?>

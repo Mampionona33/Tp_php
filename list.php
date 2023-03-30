@@ -191,12 +191,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <td>  
           <div  class=\"table_button\" style=\"display: flex; gap:0.5rem; margin: 0 0.2rem\">
             <form action=\"$delete_action\" method=\"post\" style=\"display: flex; flex-direction: row\">
-              <input type=\"hidden\" name=\"delete_id\" value=\"$key\">
+              <input class=\"hidden\" type=\"hidden\" name=\"delete_id\" value=\"$key\">
               <input type=\"submit\" class=\"button danger\" value=\"Delete\" onclick=\"return confirmDelete();\">
               </form>
               
               <form action=\"detail.php\" methode=\"get\">
-              <input type=\"hidden\"  name=\"id\" value=$key  \">
+              <input class=\"hidden\" type=\"hidden\"  name=\"id\" value=$key  \">
               <input type=\"submit\" class=\"button primary\" value=\"Details\">
               </form>
               </div>

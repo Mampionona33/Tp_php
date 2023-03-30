@@ -38,16 +38,19 @@
         tr,
         td {
             padding: 0.2rem 1rem;
+            align-items: center;
         }
+
 
         .table_button {
             display: flex;
             flex-wrap: nowrap;
         }
 
+
+
         td:nth-of-type(1) {
-            display: flex;
-            justify-content: center;
+            text-align: center;
         }
 
         th {
@@ -55,6 +58,10 @@
             background-color: #000;
             color: #fff;
             font-size: larger;
+        }
+
+        .hidden {
+            display: none;
         }
 
         .table_container_1 {

@@ -17,7 +17,7 @@ include './list_head.php';
 // définir les variables
 $fileName = 'csv/monFichier.csv';
 $new_line = '';
-var_dump($_POST);
+// var_dump($_POST);
 if (is_file($fileName)) {
   $unchande_db = file($fileName, 0, null);
   $db = file($fileName, 0, null);
@@ -34,9 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   isset($_POST['new_tel']) ? $new_line .= $_POST['new_tel'] . ';' : ';';
   isset($_POST['new_address']) ? $new_line .= $_POST['new_address'] . "\n" : "\n";
 
-  // Handle add new line
-  if (str_word_count($new_line) > 0 && !isset($_POST['action'])) {
-    $db = array_merge([$new_line], $db);
+  function createNew($newLine)
+  {
+    global $db, $unchande_db, $fileName;
+    $db = array_merge([$newLine], $db);
     $temp = array_merge([array_shift($unchande_db)], $db);
     unlink($fileName);
     $val = "";
@@ -48,48 +49,74 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: list.php");
   }
 
+  // Handle add new line
+  if (str_word_count($new_line) > 0 && !isset($_POST['action'])) {
+    createNew($new_line);
+  }
   // Handle delete line
-  if (isset($_POST["delete_id"])) {
-    $delete_id = $_POST["delete_id"];
-    foreach ($db as $key => $value) {
-      if ($key == $delete_id) {
-        unset($db[$delete_id]);
+  function deleteOne($detetId)
+  {
+    global $db, $unchande_db, $fileName;
+    $temp_array = [];
+    var_dump($detetId);
+    foreach ($db as $key => $val) {
+      if ($key == $detetId) {
+        unset($db[$detetId]);
+      } else {
+        array_push($temp_array, $val);
       }
     }
-    var_dump(array_merge([array_shift($unchande_db)], $db));
-    $del_val = "";
-    foreach (array_merge([array_shift($unchande_db)], $db) as $key => $value) {
-      $del_val = $del_val .= $value;
-    }
+    $header = array_shift($unchande_db);
     unlink($fileName);
-    file_put_contents($fileName, $del_val);
+    file_put_contents($fileName, implode(array_merge([$header], $temp_array)));
     header("Location: list.php");
+  }
+
+  if (isset($_POST["delete_id"])) {
+    $delete_id = $_POST["delete_id"];
+    deleteOne($delete_id);
   }
 
   // Handle delete Selected
-  if (isset($_POST["delete_selected"])) {
-    if (isset($_POST["delete_ids"])) {
-      $delete_ids = $_POST["delete_ids"];
-      foreach ($delete_ids as $key => $value) {
-        unset($db[$value]);
-      }
-      unlink($fileName);
-      file_put_contents($fileName, $db);
-      header("Location: list.php");
-    }
-  }
-
-  // Handle Edit from form
-  if (isset($_POST['action']) && preg_match("/edit/i", $_POST['action']) && isset($_POST['edit_id'])) {
-    $edit_id = $_POST['edit_id'];
-    foreach ($db as $key => $value) {
-      if ($key == $edit_id) {
-        $db[$key] = $new_line;
+  function deleteMultipl($selectedIds)
+  {
+    global $db, $fileName, $unchande_db;
+    $header = array_shift($unchande_db);
+    $array_tmp = $db;
+    foreach ($array_tmp as $key => $value) {
+      foreach ($selectedIds as $selectedkey => $selectVal) {
+        if ($key == $selectVal) {
+          unset($array_tmp[$key]);
+        }
       }
     }
     unlink($fileName);
-    file_put_contents($fileName, $db);
+    file_put_contents($fileName, $header .= implode($array_tmp));
     header("Location: list.php");
+  }
+
+  if (isset($_POST["delete_selected"]) && isset($_POST["delete_ids"])) {
+    deleteMultipl($_POST["delete_ids"]);
+  }
+
+  // Handle Edit from form
+  function handeEdit($editId)
+  {
+    global $db, $new_line, $fileName, $unchande_db;
+    $temp_db = $db;
+    $header = array_shift($unchande_db);
+    foreach ($temp_db as $key => $value) {
+      if ($key == $editId) {
+        $temp_db[$key] = $new_line;
+      }
+    }
+    unlink($fileName);
+    file_put_contents($fileName, $header .= implode($temp_db));
+    header("Location: list.php");
+  }
+  ;
+  if (isset($_POST['action']) && preg_match("/edit/i", $_POST['action']) && isset($_POST['edit_id'])) {
+    handeEdit($_POST['edit_id']);
   }
 
   // Handle search

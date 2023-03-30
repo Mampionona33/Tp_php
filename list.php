@@ -140,8 +140,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
   <form action=<?php echo $_SERVER["PHP_SELF"] ?> method="POST" id="mainForm">
-    <div class="sticky" style="top:0">
-      <div style="display: flex; gap:1rem">
+    <div class="sticky " style="top:0">
+      <div class="header" style="display: flex; gap:1rem">
 
         <input class="button danger" type="submit" id="delete_selected" name="delete_selected" value="Delete selected">
         <input class="button info" id="download_pdf" type="submit" value="Download PDF" name="download_pdf"
@@ -154,60 +154,62 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="button" class="button info" value="Clear filter" id="clearFilter" name="clearFilter">
 
       </div>
-      <hr>
     </div>
-
-    <table>
-      <thead>
-        <tr>
-          <th>
-            <form onsubmit="" action="page1.php" method="post">
-              <input type="checkbox" name="select" onchange="checkAll(this)">
-              <label for="select">Select</label>
-            </form>
-          </th>
-          <th>Name</th>
-          <th>Last Name</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-        // Delete all .txt files
-        array_map('unlink', glob("csv/*.txt"));
-
-        foreach ($db as $key => $value) {
-          // Create file.txt
-          file_put_contents("csv/line_$key.txt", $value);
-          $line = explode(";", $value);
-          $name = $line[0];
-          $lastName = $line[1];
-          $delete_action = $_SERVER["PHP_SELF"];
-          echo "<tr>";
-          echo "<td> <input type=\"checkbox\" name=\"delete_ids[]\" value=\"$key\"> </td>";
-          echo "<td>$name</td>";
-          echo "<td>$lastName</td>";
-          echo "
-          <td>  
-            <div style=\"display: flex; gap:0.5rem; margin: 0 0.2rem\">
-              <form action=\"$delete_action\" method=\"post\" style=\"display: flex; flex-direction: row\">
-                <input type=\"hidden\" name=\"delete_id\" value=\"$key\">
-                <input type=\"submit\" class=\"button danger\" value=\"Delete\" onclick=\"return confirmDelete();\">
+    <div class="table_container_1">
+      <div class="table_container_2">
+        <table>
+          <thead>
+            <tr>
+              <th>
+                <form onsubmit="" action="page1.php" method="post">
+                  <input type="checkbox" name="select" onchange="checkAll(this)">
+                  <label for="select">Select</label>
                 </form>
-                
-                <form action=\"detail.php\" methode=\"get\" style=\";display: flex; flex-direction: row\">
-                <input type=\"hidden\"  name=\"id\" value=$key  \">
-                <input type=\"submit\" class=\"button primary\" value=\"Details\">
-                </form>
-                </div>
-                </td>
+              </th>
+              <th>Name</th>
+              <th>Last Name</th>
+              <th>Actions</th>
             </tr>
-          ";
-        }
+          </thead>
+          <tbody>
+            <?php
+            // Delete all .txt files
+            array_map('unlink', glob("csv/*.txt"));
 
-        ?>
-      </tbody>
-    </table>
+            foreach ($db as $key => $value) {
+              // Create file.txt
+              file_put_contents("csv/line_$key.txt", $value);
+              $line = explode(";", $value);
+              $name = $line[0];
+              $lastName = $line[1];
+              $delete_action = $_SERVER["PHP_SELF"];
+              echo "<tr>";
+              echo "<td> <input type=\"checkbox\" name=\"delete_ids[]\" value=\"$key\"> </td>";
+              echo "<td>$name</td>";
+              echo "<td>$lastName</td>";
+              echo "
+        <td>  
+          <div  class=\"table_button\" style=\"display: flex; gap:0.5rem; margin: 0 0.2rem\">
+            <form action=\"$delete_action\" method=\"post\" style=\"display: flex; flex-direction: row\">
+              <input type=\"hidden\" name=\"delete_id\" value=\"$key\">
+              <input type=\"submit\" class=\"button danger\" value=\"Delete\" onclick=\"return confirmDelete();\">
+              </form>
+              
+              <form action=\"detail.php\" methode=\"get\">
+              <input type=\"hidden\"  name=\"id\" value=$key  \">
+              <input type=\"submit\" class=\"button primary\" value=\"Details\">
+              </form>
+              </div>
+              </td>
+          </tr>
+        ";
+            }
+
+            ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
     <!-- If no data found on filter -->
     <?php

@@ -17,7 +17,7 @@ include './list_head.php';
 // définir les variables
 $fileName = 'csv/monFichier.csv';
 $new_line = '';
-
+var_dump($_POST);
 if (is_file($fileName)) {
   $unchande_db = file($fileName, 0, null);
   $db = file($fileName, 0, null);
@@ -42,21 +42,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $val = "";
     foreach ($temp as $key => $value) {
       $val = $val .= $value;
-    };
+    }
+    ;
     file_put_contents($fileName, $val);
     header("Location: list.php");
   }
 
   // Handle delete line
-  if ($_POST["delete_id"]) {
+  if (isset($_POST["delete_id"])) {
     $delete_id = $_POST["delete_id"];
     foreach ($db as $key => $value) {
       if ($key == $delete_id) {
         unset($db[$delete_id]);
       }
     }
+    var_dump(array_merge([array_shift($unchande_db)], $db));
+    $del_val = "";
+    foreach (array_merge([array_shift($unchande_db)], $db) as $key => $value) {
+      $del_val = $del_val .= $value;
+    }
     unlink($fileName);
-    file_put_contents($fileName, $db);
+    file_put_contents($fileName, $del_val);
     header("Location: list.php");
   }
 
@@ -111,8 +117,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div style="display: flex; gap:1rem">
 
         <input class="button danger" type="submit" id="delete_selected" name="delete_selected" value="Delete selected">
-        <input class="button info" id="download_pdf" type="submit" value="Download PDF" name="download_pdf" onclick="this.form.action='pdf_list.php'">
-        <input class="button info" id="preview_pdf" type="submit" value="Preview PDF" name="preview_pdf" onclick="this.form.action='pdf_list.php'">
+        <input class="button info" id="download_pdf" type="submit" value="Download PDF" name="download_pdf"
+          onclick="this.form.action='pdf_list.php'">
+        <input class="button info" id="preview_pdf" type="submit" value="Preview PDF" name="preview_pdf"
+          onclick="this.form.action='pdf_list.php'">
         <input class="button primary" id="add_new" type="button" value="Add new">
         <input type="text" name="search" id="search" value="" placeholder="Find">
         <input type="button" class="button info" value="Search" id="submit_search">

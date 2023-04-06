@@ -25,7 +25,7 @@ if (is_file($fileName)) {
 }
 
 // handle formulair request
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET") {
 
   isset($_POST['new_Name']) ? $new_line .= $_POST['new_Name'] . ';' : ';';
   isset($_POST['new_lastName']) ? $new_line .= $_POST['new_lastName'] . ';' : ';';
@@ -120,8 +120,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 
   // Handle search
-  if (isset($_POST['search'])) {
-    $search = $_POST['search'];
+  if (isset($_GET['search'])) {
+    $search = $_GET['search'];
     $temp = [];
     foreach ($db as $key => $value) {
       if (preg_match_all("/$search/i", explode(";", $value)[0]) || preg_match("/$search/i", explode(";", $value)[1])) {
@@ -132,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 
   // Handle Clear filter
-  if (isset($_POST['search']) && isset($_POST["clearFilter"])) {
+  if (isset($_GET['search']) && isset($_POST["clearFilter"])) {
     header("Location: list.php");
   }
 }
@@ -155,6 +155,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       </div>
     </div>
+    
+    <?php isset($_GET['search']) ? print("<h3>Le résultat de la recherche avec le mot-clé : <b> {$_GET['search']}</b></h3>") : ''; ?>
+
     <div class="table_container_1">
       <div class="table_container_2">
         <table>
@@ -213,7 +216,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- If no data found on filter -->
     <?php
-    if (isset($_POST['search']) && count($db) == 0) {
+    if (isset($_GET['search']) && count($db) == 0) {
       echo "No data found";
     }
     ?>
@@ -242,6 +245,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       submitSearch.addEventListener('click', () => {
         mainForm.setAttribute("action", "list.php");
+        mainForm.setAttribute("method", "get");
         mainForm.submit();
       });
     })();

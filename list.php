@@ -156,7 +156,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
       </div>
     </div>
     
-    <?php isset($_GET['search']) ? print("<div class=\"alert \"> <p class=\"info alertChild\">Le résultat de la recherche avec le mot-clé : <b> {$_GET['search']}</b></p></div>") : ''; ?>
+    <?php isset($_GET['search']) && strlen($_GET['search']) > 0  ? print("<div class=\"alert \"> <p class=\"info alertChild\">Le résultat de la recherche avec le mot-clé : <b> {$_GET['search']}</b></p></div>") : ''; ?>
 
     <div class="table_container_1">
       <div class="table_container_2">
@@ -211,7 +211,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
             ?>
             <!-- If no data found on filter -->
             <?php
-              if (isset($_GET['search']) && count($db) == 0) {
+              if (isset($_GET['search']) && count($db) == 0  ) {
                 echo " 
                   <tr >
                     <td colspan=\"4\" style=\"font-size: 2rem;\" >No data found</td>

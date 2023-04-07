@@ -144,19 +144,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
       <div class="header" style="display: flex; gap:1rem">
 
         <input class="button danger" type="submit" id="delete_selected" name="delete_selected" value="Delete selected">
-        <input class="button info" id="download_pdf" type="submit" value="Download PDF" name="download_pdf"
+        <input class="button secondary" id="download_pdf" type="submit" value="Download PDF" name="download_pdf"
           onclick="this.form.action='pdf_list.php'">
-        <input class="button info" id="preview_pdf" type="submit" value="Preview PDF" name="preview_pdf"
+        <input class="button secondary" id="preview_pdf" type="submit" value="Preview PDF" name="preview_pdf"
           onclick="this.form.action='pdf_list.php'">
         <input class="button primary" id="add_new" type="button" value="Add new">
-        <input type="text" name="search" id="search" value="" placeholder="Find">
-        <input type="button" class="button info" value="Search" id="submit_search">
-        <input type="button" class="button info" value="Clear filter" id="clearFilter" name="clearFilter">
+        <input type="text" class="input" name="search" id="search" value="" placeholder="Find">
+        <input type="button" class="button primary" value="Search" id="submit_search">
+        <input type="button" class="button secondary" value="Clear filter" id="clearFilter" name="clearFilter">
 
       </div>
     </div>
     
-    <?php isset($_GET['search']) ? print("<h3>Le résultat de la recherche avec le mot-clé : <b> {$_GET['search']}</b></h3>") : ''; ?>
+    <?php isset($_GET['search']) ? print("<div class=\"alert \"> <p class=\"info alertChild\">Le résultat de la recherche avec le mot-clé : <b> {$_GET['search']}</b></p></div>") : ''; ?>
 
     <div class="table_container_1">
       <div class="table_container_2">
@@ -209,17 +209,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
             }
 
             ?>
+            <!-- If no data found on filter -->
+            <?php
+              if (isset($_GET['search']) && count($db) == 0) {
+                echo " 
+                  <tr >
+                    <td colspan=\"4\" style=\"font-size: 2rem;\" >No data found</td>
+                  </tr>
+                ";
+              }
+          ?>
           </tbody>
         </table>
       </div>
     </div>
 
-    <!-- If no data found on filter -->
-    <?php
-    if (isset($_GET['search']) && count($db) == 0) {
-      echo "No data found";
-    }
-    ?>
+    
+    
+    
   </form>
 
   <script>

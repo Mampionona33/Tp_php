@@ -4,15 +4,15 @@ extract($_GET);
 if (isset($id)) {
   $fileName = "Line " . $id;
 }
+?>
 
-echo "
 <!DOCTYPE html>
-<html lang=\"en\">
+<html lang="en">
   <head>
-    <meta charset=\"UTF-8\" />
-    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />
-    <title>$fileName</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <?php echo "<title>$fileName</title>" ?> 
     <script>
       function confirmDelete() {
         return confirm('Do you really want to delete ?');
@@ -54,6 +54,10 @@ echo "
         background-color:#28a745;
         color: #fff;
       }
+      .secondary {
+            background-color: #6c757d;
+            color: #fff;
+        }
       .box{
         display: flex;
         gap : 1rem;
@@ -61,4 +65,3 @@ echo "
     </style>
   </head>
   <body>  
-";

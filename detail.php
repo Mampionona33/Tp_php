@@ -1,5 +1,6 @@
 <?php
 include_once("./detail_head.php");
+require('./footer.php'); 
 
 if (isset($id)) {
     $fileName = "./csv/line_" . $id . ".txt";
@@ -25,33 +26,32 @@ if (isset($id)) {
         echo "file not existe";
     }
 }
+?>
 
-echo '
 <hr/>
-<div class="box">
+<div class="box">    
+        <form action="list.php" method="post" >
+            <input type="submit" value="Return" class="button secondary" >
+        </form>
+
+        <form action="formulaire.php" method="GET">
+            <input type="hidden" name="id" value="' . $id . '">
+            <input class="button primary" type="submit" value="Edit" name="action"> 
+        </form>
+        
+        <form action="pdf_detail.php" method="get">
+            <input type="hidden" name="id" value="' . $id . '">
+            <input class="button secondary" type="submit" value="Download PDF" name="download_pdf"> 
+        </form>
+        
+        
+        <form action="pdf_detail.php" method="get">
+            <input type="hidden" name="id" value="' . $id . '">
+        <input class="button secondary" type="submit" value="Preview PDF" name="preview_pdf"> 
+    </form>
     <form action="list.php" method="POST" >
         <input type="hidden" name="delete_id" value="' . $id . '">
         <input type="submit" onclick="return confirmDelete();" class="button" value="Delete" style="background-color: red; color: #fff; cursor:pointer">
-        </form>
-        <form action="list.php" method="post" >
-        <input type="submit" value="Return" class="button success" >
-        </form>
-        
-        <form action="pdf_detail.php" method="get">
-            <input type="hidden" name="id" value="' . $id . '">
-            <input class="button info" type="submit" value="Download PDF" name="download_pdf"> 
-        </form>
-        
-        <form action="formulaire.php" method="GET">
-            <input type="hidden" name="id" value="' . $id . '">
-            <input class="button info" type="submit" value="Edit" name="action"> 
-        </form>
-        
-        <form action="pdf_detail.php" method="get">
-            <input type="hidden" name="id" value="' . $id . '">
-        <input class="button info" type="submit" value="Preview PDF" name="preview_pdf"> 
     </form>
   
 </div>
-';
-include_once('./footer.php');

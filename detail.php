@@ -35,22 +35,22 @@ if (isset($id)) {
         </form>
 
         <form action="formulaire.php" method="GET">
-            <input type="hidden" name="id" value="' . $id . '">
+            <input type="hidden" name="id" value=<?php echo $id ?>>
             <input class="button primary" type="submit" value="Edit" name="action"> 
         </form>
         
         <form action="pdf_detail.php" method="get">
-            <input type="hidden" name="id" value="' . $id . '">
+            <input type="hidden" name="id" value=<?php echo $id ?>>
             <input class="button secondary" type="submit" value="Download PDF" name="download_pdf"> 
         </form>
         
         
         <form action="pdf_detail.php" method="get">
-            <input type="hidden" name="id" value="' . $id . '">
+            <input type="hidden" name="id" value=<?php echo $id ?>>
         <input class="button secondary" type="submit" value="Preview PDF" name="preview_pdf"> 
     </form>
     <form action="list.php" method="POST" >
-        <input type="hidden" name="delete_id" value="' . $id . '">
+        <input type="hidden" name="delete_id" value=<?php echo $id ?>>
         <input type="submit" onclick="return confirmDelete();" class="button" value="Delete" style="background-color: red; color: #fff; cursor:pointer">
     </form>
   

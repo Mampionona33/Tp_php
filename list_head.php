@@ -7,12 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List</title>
     <style>
+
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
+
+        body{
+
+            height: 100%;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
    
         .alert{
             margin: auto;
@@ -87,7 +95,6 @@
         .sticky {
             position: sticky;
             background-color: #fff;
-            padding-top: 0.5rem
         }
 
         a {

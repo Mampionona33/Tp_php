@@ -123,6 +123,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
   if (isset($_GET['search'])) {
     $search = $_GET['search'];
     $temp = [];
+    if(strlen($_GET['search']) <= 0){
+      header("Location: list.php");
+    }
     foreach ($db as $key => $value) {
       if (preg_match_all("/$search/i", explode(";", $value)[0]) || preg_match("/$search/i", explode(";", $value)[1])) {
         array_push($temp, $db[$key]);
@@ -156,7 +159,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
       </div>
     </div>
     
-    <?php isset($_GET['search']) && strlen($_GET['search']) > 0  ? print("<div class=\"alert \"> <p class=\"info alertChild\">Le résultat de la recherche avec le mot-clé : <b> {$_GET['search']}</b></p></div>") : ''; ?>
+    <?php isset($_GET['search'])  ? print("<div class=\"alert \"> <p class=\"info alertChild\">Le résultat de la recherche avec le mot-clé : <b> {$_GET['search']}</b></p></div>") : ''; ?>
 
     <div class="table_container_1">
       <div class="table_container_2">

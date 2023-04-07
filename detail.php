@@ -31,7 +31,7 @@ if (isset($id)) {
 <hr/>
 <div class="box">    
         <form action="list.php" method="post" >
-            <input type="submit" value="Return" class="button secondary" >
+            <input type="submit" value="Return" class="button success" >
         </form>
 
         <form action="formulaire.php" method="GET">

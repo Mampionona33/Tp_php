@@ -169,7 +169,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
               <th>
                 <form onsubmit="" action="page1.php" method="post">
                   <input type="checkbox" name="select" onchange="checkAll(this)">
-                  <label for="select">Select</label>
+                  <!-- <label for="select">Select</label> -->
                 </form>
               </th>
               <th>Name</th>

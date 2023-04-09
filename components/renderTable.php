@@ -25,7 +25,7 @@ function renderTable()
                         <input type="submit" class="button danger" value="Delete" data-value="<?= $name, " ", $lastName ?>" onclick="return confirmDelete(this);">
                     </form>
 
-                    <form action="detail.php" method="get">
+                    <form action="pages/detail.php" method="get">
                         <input type="hidden" name="id" value="<?= $key ?>">
                         <input type="submit" class="button primary" value="Details">
                     </form>

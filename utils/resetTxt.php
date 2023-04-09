@@ -12,7 +12,8 @@ function resetTxt()
         foreach ($db as $key => $value) {
             // Create file.txt
             if ($key > 0) {
-                file_put_contents("csv/line_$key.txt", $value);
+                $fileNumber = $key - 1;
+                file_put_contents("csv/line_$fileNumber.txt", $value);
             }
         }
     } else {

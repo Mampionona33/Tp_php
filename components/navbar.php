@@ -27,7 +27,7 @@
             ?>
             <div class="left">
                 <form action="../index.php" method="post">
-                    <input type="submit" class="button primary" value="List">
+                    <input type="submit" class="button info" value="List">
                 </form>
                 <form action="">
                     <input class="button primary" type="submit" value="Edit" name="action" onclick="this.form.method='GET'; this.form.action='edit.php' ">

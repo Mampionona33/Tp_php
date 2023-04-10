@@ -3,10 +3,15 @@ include_once "./components/renderTable.php";
 include_once "./utils/deleteOne.php";
 include_once "./utils/addNewLine.php";
 include_once "./utils/deleteSelected.php";
+include_once "./utils/handleSearch.php";
 
 
 // Handle delete on in list
 if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET") {
+
+    if (isset($_GET["search"])) {
+        $filter = handleSearch($_GET["search"]);
+    }
 
     if (isset($_POST["delete_ids"])) {
         deleteSelected($_POST["delete_ids"]);
@@ -33,6 +38,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
 }
 
 ?>
+
+<!-- <?php if (isset($filter)) { ?>
+    <?php if (count($filter) <= 0) { ?>
+        <p>No data found for the term: <?php isset($_GET["search"]) && print $_GET["search"]; ?></p>
+    <?php } else { ?>
+        <p>The result for the search <b><?php print $_GET["search"] ?></b> are : </p>
+    <?php } ?>
+<?php }  ?> -->
 
 <div class="table_container_1">
     <div class="table_container_2">

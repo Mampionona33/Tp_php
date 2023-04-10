@@ -5,7 +5,7 @@
         <?php if (isset($page) && $page === 'index') {
         ?>
             <form action="" method="" id="formAdd">
-                <input class="button danger" type="submit" id="delete_selected" name="delete_selected" value="Delete selected">
+                <input class="button danger" type="button" id="delete_selected" name="delete_selected" value="Delete selected">
                 <input type="hidden" name="action" value="create">
                 <input class="button primary" id="add_new" type="submit" value="Add new" onclick="this.form.action='pages/add.php'; this.form.method='get'">
             </form>

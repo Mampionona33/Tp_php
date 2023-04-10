@@ -1,1 +1,1 @@
-Dennis ;Ritchie;57;F;;test
+Niklaus ;Wirth;89;M;034545655;Winterthour, Suisse

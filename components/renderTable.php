@@ -2,7 +2,6 @@
 require_once './utils/db.php';
 require_once './utils/resetTxt.php';
 
-
 function renderTable()
 {
     $db = readDb();
@@ -15,7 +14,9 @@ function renderTable()
         $lastName = $line[1];
 ?>
         <tr>
-            <td><input type="checkbox" name="delete_ids[]" value="<?= $key ?>"></td>
+            <td>
+                <input type="checkbox" name="delete_ids[]" value="<?= $key ?>">
+            </td>
             <td><?= $name ?></td>
             <td><?= $lastName ?></td>
             <td>
@@ -32,6 +33,7 @@ function renderTable()
                 </div>
             </td>
         </tr>
+
 <?php
     }
 }

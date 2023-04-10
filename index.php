@@ -18,6 +18,7 @@
     <script src="./scripts/confirmDelete.js"></script>
     <script src="./scripts/checkAll.js"></script>
     <script src="./scripts/handleOnAddClicked.js"></script>
+    <script src="./scripts/handleSubmitDeleteSelect.js"></script>
 </body>
 
 </html>

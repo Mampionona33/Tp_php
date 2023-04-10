@@ -12,7 +12,7 @@
             <form action=<?php $_SERVER['PHP_SELF'] ?>>
                 <input type="text" class="input" name="search" id="search" value="" placeholder="Find">
                 <input type="submit" class="button primary" value="Search" id="submit_search">
-                <input type="button" class="button secondary" value="Clear filter" id="clearFilter" name="clearFilter">
+                <!-- <input type="button" class="button secondary" value="Clear filter" id="clearFilter" name="clearFilter"> -->
             </form>
             <form action="" method="POST">
                 <input class="button secondary" id="download_pdf" type="submit" value="Download PDF" name="download_pdf" onclick="this.form.action='pdf_list.php'">

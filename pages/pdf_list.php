@@ -1,8 +1,8 @@
 <?php
-require("fpdf/fpdf.php");
+require("../fpdf/fpdf.php");
 ob_start();
 $pdf = new FPDF();
-$fileName = 'csv/monFichier.csv';
+$fileName = '../csv/monFichier.csv';
 
 if (is_file($fileName)) {
     $db = file($fileName, 0, null);
@@ -38,7 +38,6 @@ if (isset($_POST["download_pdf"]) || isset($_POST["preview_pdf"]) && count($db) 
             $pdf->Cell($width, $height, $name, 1, 0, "j", false);
             $pdf->Cell($width, $height, $lastName, 1, 0, "j", false);
             $pdf->Ln();
-
         }
     }
 }

@@ -1,7 +1,7 @@
 <?php
+
 ob_start();
-require("fpdf/fpdf.php");
-include_once("./detail_head.php");
+require("../fpdf/fpdf.php");
 
 $pdf_detail = new FPDF();
 
@@ -11,9 +11,9 @@ if (isset($_GET['id'])) {
 
 
 if (isset($id)) {
-    $fileName = "./csv/line_" . $id . ".txt";
+    $fileName = "../csv/line_" . $id . ".txt";
     if (is_file($fileName)) {
-        $content = file_get_contents("./csv/line_" . $id . ".txt");
+        $content = file_get_contents("../csv/line_" . $id . ".txt");
         $contentsArray = explode(';', $content);
 
         $name = isset($contentsArray[0]) ? $contentsArray[0] : " ";

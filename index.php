@@ -1,3 +1,5 @@
+<?php $page = "index" ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,11 +12,12 @@
 
 <body>
     <?php
-    include_once "./components/navbar.php";
+    include "./components/navbar.php";
     include_once "./components/table.php";
     ?>
     <script src="./scripts/confirmDelete.js"></script>
     <script src="./scripts/checkAll.js"></script>
+    <script src="./scripts/handleOnAddClicked.js"></script>
 </body>
 
 </html>

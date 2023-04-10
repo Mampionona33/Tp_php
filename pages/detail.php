@@ -1,21 +1,25 @@
 <?php
-/* 
-    show all error in browser
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
- */
+
+// show all error in browser
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 include_once "../utils/readTxt.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET") {
     if (isset($_GET["id"])) {
         $fileName = readTxt($_GET["id"]);
+
         $name = $fileName[0];
         $lastName = $fileName[1];
         $age = $fileName[2];
         $sex = $fileName[3];
         $tel = $fileName[4];
         $adress = $fileName[5];
+
+        // Set the value of $page variable to 'detail'
+        $page = "detail";
     }
 }
 ?>
@@ -31,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
 </head>
 
 <body>
-
+    <?php include "../components/navbar.php" ?>
     <table>
         <tr>
             <td>Name:</td>

@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
 
     if (isset($_GET["search"])) {
         $filter = handleSearch($_GET["search"]);
+        $search = $_GET["search"];
     }
 
     if (isset($_POST["delete_ids"])) {
@@ -48,6 +49,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
 <?php }  ?> -->
 
 <div class="table_container_1">
+    <?php if (isset($search) && count($filter) > 0) { ?>
+        <div class="dialog ">
+            <p class="info">Results of search term : <?php print $search ?> </p>
+        </div>
+    <?php } ?>
     <div class="table_container_2">
         <form action="" id="mainTableForm">
             <table>

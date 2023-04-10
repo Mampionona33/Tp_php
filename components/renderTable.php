@@ -22,12 +22,11 @@ function renderTable()
     if (isset($search)) { ?>
         <?php if (count($filter) <= 0) { ?>
             <tr>
-                <td colspan="4" style="font-size: 1rem; text-align: center;">No data found</td>
+                <td colspan="4" class="noDataFound">No data found</td>
             </tr>
             <?php $db = []; ?>
-        <?php } else { ?>
-            <p>Results of search term : <?php print $search ?> </p>
         <?php } ?>
+
     <?php } ?>
 
 

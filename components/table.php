@@ -8,18 +8,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
     if (isset($_POST["delete_id"])) {
         deleteOne($_POST["delete_id"]);
     }
-
-    if (isset($_POST["action"]) && preg_match_all("/create/i", $_POST["action"])) {
-        if (
-            isset($_POST["name"])
-            && isset($_POST["lastName"])
-            && isset($_POST["age"])
-            && isset($_POST["sex"])
-            && isset($_POST["tel"])
-            && isset($_POST["address"])
-
-        ) {
-            $newLine = $_POST["name"] . ";" . $_POST["lastName"] . ";" . $_POST["age"] . ";" . $_POST["sex"] . ";" . $_POST["tel"] . ";" . $_POST["adress"] . "\n";
+    if (
+        isset($_POST["name"])
+        && isset($_POST["lastName"])
+        && isset($_POST["age"])
+        && isset($_POST["sex"])
+        && isset($_POST["tel"])
+        && isset($_POST["address"])
+    ) {
+        $newLine = $_POST["name"] . ";" . $_POST["lastName"] . ";" . $_POST["age"] . ";" . $_POST["sex"] . ";" . $_POST["tel"] . ";" . $_POST["adress"] . "\n";
+        if (($_POST["action"]) && preg_match_all("/create/i", $_POST["action"])) {
             addNewLine($newLine);
         }
     }

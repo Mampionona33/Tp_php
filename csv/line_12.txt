@@ -1,1 +1,1 @@
-Bjarne ;Stroustrup;73;M;03400000;Aarhus
+Guido ;van Rossum;67;M;034000121;Harlem 

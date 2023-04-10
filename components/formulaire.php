@@ -1,6 +1,7 @@
 <?php
 include "../utils/readTxt.php";
 
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET") {
     if (isset($_GET["id"])) {
         $fileContents = readTxt($_GET["id"]);
@@ -10,7 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
         $sex = $fileContents[3];
         $tel = $fileContents[4];
         $adress = $fileContents[5];
-        // var_dump($fileContents);
     }
     if (isset($_GET["action"])) {
         $action = $_GET["action"];
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
 }
 ?>
 
-<form action="" method="GET">
+<form action=<?php preg_match_all("/create/i", $action) ? print "../index.php" : print "detail.php?id=" . $_GET["id"]  ?> method="post">
     <div>
         <label for="name">Name</label>
         <input type="text" name="name" id="name" value=<?php if (preg_match_all("/edit/i", $action)) {
@@ -50,15 +50,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
     </div>
     <div>
         <label for="new_address">Adress</label>
-        <input type="text" name="new_address" id="new_address" value=<?php if (preg_match_all("/edit/i", $action)) {
-                                                                            echo $adress;
-                                                                        } ?>>
+        <input type="text" name="address" id="address" value=<?php if (preg_match_all("/edit/i", $action)) {
+                                                                    echo $adress;
+                                                                } ?>>
     </div>
-    <label for="new_tel">Tel</label>
-    <input type="text" name="new_tel" id="tel" value=<?php if (preg_match_all("/edit/i", $action)) {
-                                                            echo $tel;
-                                                        } ?>>
+    <label for="tel">Tel</label>
+    <input type="text" name="tel" id="tel" value=<?php if (preg_match_all("/edit/i", $action)) {
+                                                        echo $tel;
+                                                    } ?>>
     <div class="button_container">
+        <input type="hidden" name="action" value="<?php echo isset($action) ? $action : ''; ?>">
         <input class="button secondary" type="reset" value="Reset">
         <input class="button primary" type="submit" value="Submit">
         <input type="submit" value="Back" onclick="history.back();">

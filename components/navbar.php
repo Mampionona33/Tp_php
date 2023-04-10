@@ -16,9 +16,11 @@
             </form>
         <?php }
         if (isset($page) && $page === 'detail') { ?>
-
+            <form action="../index.php" method="post">
+                <input type="submit" value="List">
+            </form>
             <form action="">
-                <input type="submit" value="Back" onclick="history.back();">
+
                 <input class="button primary" type="submit" value="Edit" name="action" onclick="this.form.method='GET'; this.form.action='edit.php' ">
                 <?php if (isset($_GET["id"])) { ?>
                     <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">

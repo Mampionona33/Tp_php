@@ -59,7 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
                                                         echo $tel;
                                                     } ?>>
     <div class="button_container">
-        <input type="hidden" name="action" value="<?php echo isset($action) ? $action : ''; ?>">
+        <input type="hidden" name="action" value="<?php echo isset($action) ? $action : null; ?>">
+        <input type="hidden" name="id" value="<?php echo isset($_GET["id"]) ? $_GET["id"] : null; ?>">
         <input class="button secondary" type="reset" value="Reset">
         <input class="button primary" type="submit" value="Submit">
         <input type="submit" value="Back" onclick="history.back();">

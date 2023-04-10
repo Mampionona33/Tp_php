@@ -55,33 +55,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
 
 <body>
     <?php include "../components/navbar.php" ?>
-    <table>
-        <tr>
-            <td>Name:</td>
-            <td> <?php echo $name ?> </td>
-        </tr>
-        <tr>
-            <td>Last name:</td>
-            <td> <?php echo $lastName ?> </td>
-        </tr>
-        <tr>
-            <td>Age:</td>
-            <td> <?php echo $age ?> ans</td>
-        </tr>
-        <tr>
-            <td>Sex:</td>
-            <td> <?php echo $sex ?></td>
-        </tr>
-        <tr>
-            <td>Tel:</td>
-            <td> <?php echo $tel ?></td>
-        </tr>
-        <tr>
-            <td>Adress:</td>
-            <td> <?php echo $adress ?></td>
-        </tr>
-    </table>
+    <div class="box ">
+        <div class="detailElement ">
 
+            <p>Name:</p>
+            <p> <?php echo $name ?> </p>
+
+            <p>Last name:</p>
+            <p> <?php echo $lastName ?> </p>
+
+            <p>Age:</p>
+            <p> <?php echo $age ?> ans</p>
+
+            <p>Sex:</p>
+            <p> <?php echo $sex ?></p>
+
+            <p>Tel:</p>
+            <p> <?php echo $tel ?></p>
+
+            <p>Adress:</p>
+            <p> <?php echo $adress ?></p>
+        </div>
+    </div>
 </body>
 
 </html>

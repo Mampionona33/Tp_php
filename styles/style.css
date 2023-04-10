@@ -2,6 +2,8 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .navbar {
@@ -28,11 +30,12 @@
 }
 
 .button {
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 1rem;
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
   border: none;
+  text-transform: uppercase;
 }
 
 .w50 {
@@ -161,7 +164,51 @@ tr:nth-child(odd) {
   margin: 0 auto;
   padding: 1rem;
   width: fit-content;
-  border-radius: 12px;
+  border-radius: 15px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.detailElement {
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 10px;
+  display: grid;
+  row-gap: 0.5rem;
+  align-items: center;
+  column-gap: 1rem;
+  grid-template-columns: repeat(2, auto);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.button_container {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.paper {
+  display: flex;
+}
+
+.dCol {
+  flex-direction: column;
+}
+
+.left {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+input[type="checkbox"] {
+  transform: scale(0.8);
 }

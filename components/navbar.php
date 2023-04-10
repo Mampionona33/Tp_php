@@ -25,16 +25,17 @@
                 $id = $_GET["id"];
             }
             ?>
-            <form action="../index.php" method="post">
-                <input type="submit" value="List">
-            </form>
-            <form action="">
-
-                <input class="button primary" type="submit" value="Edit" name="action" onclick="this.form.method='GET'; this.form.action='edit.php' ">
-                <?php if (isset($_GET["id"])) { ?>
-                    <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
-                <?php } ?>
-            </form>
+            <div class="left">
+                <form action="../index.php" method="post">
+                    <input type="submit" class="button primary" value="List">
+                </form>
+                <form action="">
+                    <input class="button primary" type="submit" value="Edit" name="action" onclick="this.form.method='GET'; this.form.action='edit.php' ">
+                    <?php if (isset($_GET["id"])) { ?>
+                        <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
+                    <?php } ?>
+                </form>
+            </div>
 
             <div style="display: flex; gap:1rem">
                 <form action="pdf_detail.php" method="get">

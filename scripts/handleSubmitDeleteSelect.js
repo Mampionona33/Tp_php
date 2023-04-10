@@ -1,13 +1,17 @@
 function handleSubmitDeleteSelect() {
-  const mainTableForm = document.getElementById("mainTableForm");
-  const delete_id = mainTableForm.querySelectorAll('input[name="delete_id"]');
-  for (let i = 0; i < delete_id.length; i++) {
-    const element = delete_id[i];
-    element.removeAttribute("name");
+  if (
+    confirm("Êtes-vous sûr de vouloir supprimer les éléments sélectionnés ?")
+  ) {
+    const mainTableForm = document.getElementById("mainTableForm");
+    const delete_id = mainTableForm.querySelectorAll('input[name="delete_id"]');
+    for (let i = 0; i < delete_id.length; i++) {
+      const element = delete_id[i];
+      element.removeAttribute("name");
+    }
+    mainTableForm.setAttribute("method", "post");
+    mainTableForm.setAttribute("action", ".");
+    mainTableForm.submit();
   }
-  mainTableForm.setAttribute("method", "post");
-  mainTableForm.setAttribute("action", ".");
-  mainTableForm.submit();
 }
 
 window.addEventListener("load", function () {

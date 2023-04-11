@@ -114,10 +114,6 @@ th:last-child {
   border-top-right-radius: 10px;
 }
 
-tr:last-child td:first-child {
-  border-bottom-right-radius: 10px;
-}
-
 .info {
   background-color: #28a745;
   color: #fff;

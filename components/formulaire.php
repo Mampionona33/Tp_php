@@ -1,7 +1,6 @@
 <?php
 include "../utils/readTxt.php";
 
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET") {
     if (isset($_GET["id"])) {
         $fileContents = readTxt($_GET["id"]);

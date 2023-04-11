@@ -40,14 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
 
 ?>
 
-<!-- <?php if (isset($filter)) { ?>
-    <?php if (count($filter) <= 0) { ?>
-        <p>No data found for the term: <?php isset($_GET["search"]) && print $_GET["search"]; ?></p>
-    <?php } else { ?>
-        <p>The result for the search <b><?php print $_GET["search"] ?></b> are : </p>
-    <?php } ?>
-<?php }  ?> -->
-
 <div class="table_container_1">
     <?php if (isset($search) && count($filter) > 0) { ?>
         <div class="dialog ">

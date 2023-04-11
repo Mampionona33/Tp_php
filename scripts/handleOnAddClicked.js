@@ -11,6 +11,4 @@
     form.action = `${form.action}?${params.toString()}`;
     form.submit();
   });
-
-  // le reste du code ...
 })();

@@ -30,9 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
                                                                             echo $lastName;
                                                                         } ?>>
         <label for="name">Age</label>
-        <input type="number" name="age" id="age" min="0" value=<?php if (preg_match_all("/edit/i", $action)) {
-                                                                    echo $age;
-                                                                } ?>>
+        <input type="number" name="age" id="age" min="0" required value=<?php if (preg_match_all("/edit/i", $action)) {
+                                                                            echo $age;
+                                                                        } ?>>
         <label for="sex">Sex</label>
         <div class="sex">
             <input type="radio" name="sex" id="female" value="F" checked <?php echo ($sex == "F") ? "checked" : ""; ?>>

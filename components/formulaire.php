@@ -22,17 +22,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
     <form class="detailElement" action=<?php preg_match_all("/create/i", $action) ? print "../index.php" : print "detail.php?id=" . $_GET["id"]  ?> method="post">
 
         <label for="name">Name</label>
-        <input type="text" name="name" id="name" value=<?php if (preg_match_all("/edit/i", $action)) {
-                                                            echo $name;
-                                                        } ?>>
-        <label for="name">Last name</label>
-        <input type="text" name="lastName" id="lastName" value=<?php if (preg_match_all("/edit/i", $action)) {
-                                                                    echo $lastName;
+        <input type="text" name="name" id="name" required value=<?php if (preg_match_all("/edit/i", $action)) {
+                                                                    echo $name;
                                                                 } ?>>
+        <label for="name">Last name</label>
+        <input type="text" name="lastName" id="lastName" required value=<?php if (preg_match_all("/edit/i", $action)) {
+                                                                            echo $lastName;
+                                                                        } ?>>
         <label for="name">Age</label>
-        <input type="text" name="age" id="age" value=<?php if (preg_match_all("/edit/i", $action)) {
-                                                            echo $age;
-                                                        } ?>>
+        <input type="number" name="age" id="age" min="0" value=<?php if (preg_match_all("/edit/i", $action)) {
+                                                                    echo $age;
+                                                                } ?>>
         <label for="sex">Sex</label>
         <div class="sex">
             <input type="radio" name="sex" id="female" value="F" checked <?php echo ($sex == "F") ? "checked" : ""; ?>>

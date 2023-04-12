@@ -14,6 +14,7 @@ if (isset($_GET["id"])) {
         <?php } else if (isset($page) && preg_match("/detail/i", $page)) { ?>
             <input type="button" id="buttonList" value="List" class="button info">
             <input class="button primary" id="editButton" type="button" data-id="<?php echo $id ?>" value="Edit" name="action">
+            <input class="button secondary" type="button" data-id="<?php echo $id ?>" value="Download PDF" id="download_pdf_detail" name="download_pdf">
         <?php } ?>
     </form>
 </div>

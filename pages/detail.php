@@ -80,6 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
     </div>
     <script src="../scripts/handleClickLIstBtn.js"></script>
     <script src="../scripts/handleClickEdit.js"></script>
+    <script src="../scripts/handleDownloadPdfDetail.js"></script>
 </body>
 
 </html>

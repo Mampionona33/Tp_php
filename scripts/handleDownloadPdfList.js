@@ -2,7 +2,7 @@ const handleDownloadPdfList = () => {
   const navbarForm = document.getElementById("navbarForm");
 
   const search = document.getElementById("search");
-  search.removeAttribute("name");
+  search && search.removeAttribute("name");
 
   navbarForm.setAttribute("method", "post");
   navbarForm.setAttribute("action", "./pages/pdf_list.php");

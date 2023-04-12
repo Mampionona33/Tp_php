@@ -2,7 +2,7 @@ const handleClickAdd = () => {
   const navbarForm = document.getElementById("navbarForm");
 
   const search = document.getElementById("search");
-  search.removeAttribute("name");
+  search && search.removeAttribute("name");
 
   const hiddenInput = document.createElement("input");
   hiddenInput.setAttribute("type", "hidden");

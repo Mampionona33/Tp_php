@@ -54,7 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
 </head>
 
 <body>
-    <?php include "../components/navbar.php" ?>
+    <!-- <?php include "../components/navbar.php" ?> -->
+    <!-- <?php include "../components/navbar_.php" ?> -->
     <div class="box ">
         <div class="detailElement ">
 

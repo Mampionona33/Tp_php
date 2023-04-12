@@ -1,14 +1,21 @@
-(() => {
-  const form = document.getElementById("navbarForm");
-  const searchInput = form.querySelector("#search");
-  const add_new = form.querySelector("#add_new");
+const handleClickAdd = () => {
+  const navbarForm = document.getElementById("navbarForm");
 
-  add_new.addEventListener("click", (event) => {
-    event.preventDefault();
-    form.action = "./pages/add.php";
-    form.method = "get";
-    const params = new URLSearchParams({ action: "create" });
-    form.action = `${form.action}?${params.toString()}`;
-    form.submit();
-  });
-})();
+  const search = document.getElementById("search");
+  search.removeAttribute("name");
+
+  const hiddenInput = document.createElement("input");
+  hiddenInput.setAttribute("type", "hidden");
+  hiddenInput.setAttribute("name", "action");
+  hiddenInput.setAttribute("value", "create");
+
+  navbarForm.appendChild(hiddenInput);
+  navbarForm.setAttribute("method", "get");
+  navbarForm.setAttribute("action", "pages/add.php");
+  navbarForm.submit();
+};
+
+window.addEventListener("load", function () {
+  const add_new = document.getElementById("add_new");
+  add_new && add_new.addEventListener("click", handleClickAdd);
+});

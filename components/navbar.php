@@ -6,10 +6,8 @@
             <form class="w50" action=<?php $_SERVER['PHP_SELF'] ?>>
                 <input type="text" class="input w75" name="search" id="search" value="" placeholder="Find">
                 <input type="submit" class="button primary" value="Search" id="submit_search">
-                <!-- <input type="button" class="button secondary" value="Clear filter" id="clearFilter" name="clearFilter"> -->
             </form>
             <form action="" method="" id="formAdd">
-                <input class="button danger" type="button" id="delete_selected" name="delete_selected" value="Delete selected">
                 <input type="hidden" name="action" value="create">
                 <input class="button primary" id="add_new" type="submit" value="Add new" onclick="this.form.action='pages/add.php'; this.form.method='get'">
             </form>

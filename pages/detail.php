@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
 
 <body>
     <!-- <?php include "../components/navbar.php" ?> -->
-    <!-- <?php include "../components/navbar_.php" ?> -->
+    <?php include "../components/navbar_.php" ?>
     <div class="box ">
         <div class="detailElement ">
 
@@ -78,6 +78,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
             <p> <?php echo $adress ?></p>
         </div>
     </div>
+    <script src="../scripts/handleClickLIstBtn.js"></script>
+    <script src="../scripts/handleClickEdit.js"></script>
 </body>
 
 </html>

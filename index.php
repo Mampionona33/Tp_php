@@ -24,6 +24,7 @@
     <script src="./scripts/handleClickPreviewPdfList.js"></script>
     <script src="./scripts/handleDownloadPdfList.js"></script>
     <script src="./scripts/handleClickSearch.js"></script>
+    
 </body>
 
 </html>

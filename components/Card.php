@@ -18,6 +18,7 @@ class Card
     {
         $output = '<div class="card">';
         $output .= '<div class="card-header">' . $this->title . '</div>';
+        $output .= '<hr align="center" class="card-separator">';
         $output .= '<div class="card-body">';
         foreach ($this->body as $element) {
             $output .= $element;

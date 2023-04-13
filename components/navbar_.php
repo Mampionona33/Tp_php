@@ -15,7 +15,7 @@ if (isset($_GET["id"])) {
                 <input class="button secondary" id="download_pdf_list" type="button" value="Download PDF" name="download_pdf" onclick="this.form.action='pdf_list.php'">
                 <input class="button secondary" id="preview_pdf_list" type="button" value="Preview PDF" name="preview_pdf" onclick="this.form.action='./pages/pdf_list.php'">
                 <?php if (isset($page) && $page != "exercice") { ?>
-                    <input type="button" value="Exercices" class="button primary">
+                    <input type="button" id="btnExerciceJs" value="Exercices" class="button primary">
             </div>
         <?php } ?>
 
@@ -28,7 +28,7 @@ if (isset($_GET["id"])) {
             <input class="button secondary" type="button" data-id="<?php echo $id ?>" value="Download PDF" id="download_pdf_detail" name="download_pdf">
             <input class="button secondary" type="button" data-id="<?php echo $id ?>" value="Preview PDF" id="preview_pdf_detail" name="preview_pdf">
             <?php if (isset($page) && $page != "exercice") { ?>
-                <input type="button" value="Exercices" class="button primary">
+                <input type="button" id="btnExerciceJs" name="exerciceJs" value="Exercices JS" class="button primary">
         </div>
     <?php } ?>
 

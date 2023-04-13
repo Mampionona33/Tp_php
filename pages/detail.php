@@ -82,6 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
     <script src="../scripts/handleClickEdit.js"></script>
     <script src="../scripts/handleDownloadPdfDetail.js"></script>
     <script src="../scripts/handleClickPreviewPdfDetail.js"></script>
+    <script src="../scripts/handleClickExerciceJs.js"></script>
 </body>
 
 </html>

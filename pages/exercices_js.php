@@ -1,3 +1,9 @@
+<?php
+require_once "../components/Card.php";
+
+$CardAddition = new Card("Addition");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +16,7 @@
 
 <body>
     <p>Exercice JS</p>
+    <?php echo $CardAddition->render() ?>
 </body>
 
 </html>

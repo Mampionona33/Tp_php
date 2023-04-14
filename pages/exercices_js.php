@@ -13,7 +13,7 @@ $CardAddition->addElement('</form>');
 // Converion min to sec
 $CardMinToSec = new Card("Min to Sec");
 $CardMinToSec->addElement('<form method="post" id="formMinToSec" class="card-form">');
-$CardMinToSec->addElement('<input type="number" id="nbMinToSec">');
+$CardMinToSec->addElement('<input type="number" placeholder="Minutes" min="0" id="nbMinToSec">');
 $CardMinToSec->addElement('<input type="submit" class="button primary" id="btnMinToSec" value="Convert min to sec" >');
 $CardMinToSec->addElement("</form>")
 ?>

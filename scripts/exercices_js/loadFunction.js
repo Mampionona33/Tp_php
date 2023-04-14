@@ -18,12 +18,18 @@ window.addEventListener("load", () => {
   const btnMinToSec = document.getElementById("btnMinToSec");
   btnMinToSec.addEventListener("click", (ev) => {
     const formMinToSec = document.getElementById("formMinToSec");
-    const nbMinToSec = document.getElementById("nbMinToSec").value;
+    const nbMinToSec = document.getElementById("nbMinToSec");
+    const nbMinToSecVal = nbMinToSec.value;
     ev.preventDefault();
-    if (nbMinToSec) {
-      const output = minToSec(parseInt(nbMinToSec));
-      alert(output + " Sec");
-      formMinToSec.submit();
+    if (nbMinToSecVal) {
+      const output = minToSec(parseInt(nbMinToSecVal));
+      if (output >= 0) {
+        alert(output + " Sec");
+        formMinToSec.submit();
+      } else {
+        alert("The minutes must be greater or equal to zero.");
+        nbMinToSec.value = ""; // Réinitialisation de la valeur
+      }
     }
   });
 });

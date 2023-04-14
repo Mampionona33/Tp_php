@@ -21,8 +21,16 @@ $CardMinToSec->addElement("</form>");
 $CardIncrement = new Card("Increment");
 $CardIncrement->addElement('<form id="formIncrement" method="post" class="card-form">');
 $CardIncrement->addElement('<input type="number" id="nbToIncrement" placeholder="Number to increment">');
-$CardIncrement->addElement('<input type="button" class="button primary" id="btnIncrement" value="Increment"');
+$CardIncrement->addElement('<input type="button" class="button primary" id="btnIncrement" value="Increment">');
 $CardIncrement->addElement('</form>');
+
+
+// Reverse text
+$CardTxtReverse = new Card("Reverse Text");
+$CardTxtReverse->addElement('<form id="formReversTxt" method="post" class="card-form">');
+$CardTxtReverse->addElement('<input type="text" id="txtToReverse" placeholder="Text to reverse">');
+$CardTxtReverse->addElement('<input type="button" class="button primary" id="btnReverse" value="Reverse">');
+$CardTxtReverse->addElement('</form>');
 ?>
 
 <!DOCTYPE html>
@@ -46,12 +54,14 @@ $CardIncrement->addElement('</form>');
         <?php echo $CardAddition->render() ?>
         <?php echo $CardMinToSec->render() ?>
         <?php echo $CardIncrement->render() ?>
+        <?php echo $CardTxtReverse->render() ?>
     </div>
 
     <script src="../scripts/exercices_js/minToSec.js"></script>
     <script src="../scripts/exercices_js/addition.js"></script>
     <script src="../scripts/exercices_js/loadFunction.js"></script>
     <script src="../scripts/exercices_js/increment.js"></script>
+    <script src="../scripts/exercices_js/strRevers.js"></script>
     <script src="../scripts/handleClikbtnToHomePage.js"></script>
 </body>
 

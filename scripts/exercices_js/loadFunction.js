@@ -53,4 +53,24 @@ window.addEventListener("load", () => {
       formIncrement.submit();
     }
   });
+
+  // Reverse text
+  const btnReverse = document.getElementById("btnReverse");
+  const formReversTxt = document.getElementById("formReversTxt");
+
+  btnReverse.addEventListener("click", (ev) => {
+    ev.preventDefault();
+    formReversTxt.submit();
+  });
+
+  formReversTxt.addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    const txtToReverse = document.getElementById("txtToReverse");
+    const txt = txtToReverse.value;
+
+    if (txt.length > 0) {
+      alert(strRevers(txt));
+      formReversTxt.submit();
+    }
+  });
 });

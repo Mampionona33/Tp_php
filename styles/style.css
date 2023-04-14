@@ -237,6 +237,7 @@ input[type="checkbox"] {
 
 .card-body {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   padding: 1rem;
 }

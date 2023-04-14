@@ -31,13 +31,21 @@ $CardTxtReverse->addElement('<form id="formReversTxt" method="post" class="card-
 $CardTxtReverse->addElement('<input type="text" id="txtToReverse" placeholder="Text to reverse">');
 $CardTxtReverse->addElement('<input type="button" class="button primary" id="btnReverse" value="Reverse">');
 $CardTxtReverse->addElement('</form>');
+
+// Get max
+$CardGetMax = new Card("Get max");
+$CardGetMax->addElement('<div style="display:flex; flex-wrap: wrap; width:100%" id="listComaredVal" ></div>');
+$CardGetMax->addElement('<form id="formGetMax" method="post" class="card-form">');
+$CardGetMax->addElement('<div style="display:flex; gap:1rem" >');
+$CardGetMax->addElement('<input type="number" id="nbCompareMax" placeholder="Add value to Compare">');
+$CardGetMax->addElement('<input type="button" class="button primary" id="btnAddValToMax" value="+" >');
+$CardGetMax->addElement('</div>');
+$CardGetMax->addElement('<input type="button" class="button primary" id="btnGetMax" value="Get max">');
+$CardGetMax->addElement('</form>');
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
-
-
 
 <head>
     <meta charset="UTF-8">
@@ -55,6 +63,7 @@ $CardTxtReverse->addElement('</form>');
         <?php echo $CardMinToSec->render() ?>
         <?php echo $CardIncrement->render() ?>
         <?php echo $CardTxtReverse->render() ?>
+        <?php echo $CardGetMax->render() ?>
     </div>
 
     <script src="../scripts/exercices_js/minToSec.js"></script>
@@ -62,6 +71,7 @@ $CardTxtReverse->addElement('</form>');
     <script src="../scripts/exercices_js/loadFunction.js"></script>
     <script src="../scripts/exercices_js/increment.js"></script>
     <script src="../scripts/exercices_js/strRevers.js"></script>
+    <script src="../scripts/exercices_js/getMax.js"></script>
     <script src="../scripts/handleClikbtnToHomePage.js"></script>
 </body>
 

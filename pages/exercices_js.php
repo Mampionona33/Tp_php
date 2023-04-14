@@ -4,7 +4,7 @@ require_once "../components/Card.php";
 
 // Card Additon
 $CardAddition = new Card("Addition");
-$CardAddition->addElement('<form id="formAdd" method="post" class="card-form">');
+$CardAddition->addElement('<form method="post" id="formAdd" method="post" class="card-form">');
 $CardAddition->addElement('<input type="number" required class="" placeholder="Number 1" id="nb1Add"  >');
 $CardAddition->addElement('<input type="number" required class="" placeholder="Number 2" id="nb2Add" >');
 $CardAddition->addElement('<input type="submit" class="button primary" id="btnMakeAdd" value="Make an addition" >');
@@ -12,7 +12,7 @@ $CardAddition->addElement('</form>');
 
 // Converion min to sec
 $CardMinToSec = new Card("Min to Sec");
-$CardMinToSec->addElement('<form id="formMinToSec" class="card-form">');
+$CardMinToSec->addElement('<form method="post" id="formMinToSec" class="card-form">');
 $CardMinToSec->addElement('<input type="number" id="nbMinToSec">');
 $CardMinToSec->addElement('<input type="submit" class="button primary" id="btnMinToSec" value="Convert min to sec" >');
 $CardMinToSec->addElement("</form>")

@@ -22,7 +22,7 @@ window.addEventListener("load", () => {
     ev.preventDefault();
     if (nbMinToSec) {
       const output = minToSec(parseInt(nbMinToSec));
-      alert(output);
+      alert(output + " Sec");
       formMinToSec.submit();
     }
   });

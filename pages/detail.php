@@ -78,11 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == "GET")
             <p> <?php echo $adress ?></p>
         </div>
     </div>
-    <script src="../scripts/handleClickLIstBtn.js"></script>
-    <script src="../scripts/handleClickEdit.js"></script>
-    <script src="../scripts/handleDownloadPdfDetail.js"></script>
-    <script src="../scripts/handleClickPreviewPdfDetail.js"></script>
-    <script src="../scripts/handleClickExerciceJs.js"></script>
+  
 </body>
 
 </html>

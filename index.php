@@ -16,14 +16,6 @@
     include "./components/navbar_.php";
     include_once "./components/table.php";
     ?>
-    <script src="./scripts/confirmDelete.js"></script>
-    <script src="./scripts/checkAll.js"></script>
-    <script src="./scripts/handleOnAddClicked.js"></script>
-    <script src="./scripts/handleSubmitDeleteSelect.js"></script>
-    <script src="./scripts/handleClickPreviewPdfList.js"></script>
-    <script src="./scripts/handleDownloadPdfList.js"></script>
-    <script src="./scripts/handleClickSearch.js"></script>
-    <script src="./scripts/handleClickExerciceJs.js"></script>
 
 </body>
 

@@ -43,3 +43,17 @@ if (isset($_GET["id"])) {
         <?php } ?>
     </form>
 </div>
+<script src="../scripts/handleClikbtnToHomePage.js"></script>
+<script src="../scripts/confirmDelete.js"></script>
+<script src="../scripts/checkAll.js"></script>
+<script src="../scripts/handleOnAddClicked.js"></script>
+<script src="../scripts/handleSubmitDeleteSelect.js"></script>
+<script src="../scripts/handleClickPreviewPdfList.js"></script>
+<script src="../scripts/handleDownloadPdfList.js"></script>
+<script src="../scripts/handleClickSearch.js"></script>
+<script src="../scripts/handleClickExerciceJs.js"></script>
+<script src="../scripts/handleClickLIstBtn.js"></script>
+<script src="../scripts/handleClickEdit.js"></script>
+<script src="../scripts/handleDownloadPdfDetail.js"></script>
+<script src="../scripts/handleClickPreviewPdfDetail.js"></script>
+<script src="../scripts/handleClickExerciceJs.js"></script>

@@ -1,3 +1,3 @@
 const minToSec = (min) => {
-  console.log(min * 60);
+  return min * 60;
 };

@@ -213,6 +213,7 @@ input[type="checkbox"] {
 
 .bodyContainer {
   display: flex;
+  flex-wrap: wrap;
 }
 /* Card */
 .card {

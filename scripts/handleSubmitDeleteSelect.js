@@ -4,6 +4,7 @@ function handleSubmitDeleteSelect() {
   const delete_ids = mainTableForm.querySelectorAll(
     'input[name="delete_ids[]"]:checked'
   );
+  console.log(delete_ids);
   if (delete_ids.length > 0) {
     if (
       confirm("Êtes-vous sûr de vouloir supprimer les éléments sélectionnés ?")
@@ -21,7 +22,6 @@ function handleSubmitDeleteSelect() {
 
 window.addEventListener("load", function () {
   const delete_selected = document.getElementById("delete_selected");
-
   delete_selected &&
     delete_selected.addEventListener("click", handleSubmitDeleteSelect);
 });

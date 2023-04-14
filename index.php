@@ -1,4 +1,7 @@
-<?php $page = "index" ?>
+<?php
+$page = "index";
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">

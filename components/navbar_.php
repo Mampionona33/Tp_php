@@ -3,10 +3,6 @@ if (isset($_GET["id"])) {
     $id = $_GET["id"];
 }
 
-// $test = explode(";", $_SERVER["PHP_SELF"]);
-// if (preg_match_all("/exercices_js/", $_SERVER["PHP_SELF"])) {
-//     var_dump("boom");
-// }
 ?>
 
 <div class="sticky ">
@@ -16,7 +12,7 @@ if (isset($_GET["id"])) {
                 <input type="text" name="search" placeholder="Find" id="searchInput" class="input">
                 <input type="submit" value="search" id="submit_search" class="button primary">
                 <input type="button" value="Add new" id="add_new" class="button primary">
-                <input type="button" value="Delete Seleced" id="btnDeleteSelected" class="button danger">
+                <input class="button danger" type="button" id="delete_selected" name="delete_selected" value="Delete selected">
             </div>
             <div class="left">
                 <input class="button secondary" id="download_pdf_list" type="button" value="Download PDF" name="download_pdf" onclick="this.form.action='pdf_list.php'">

@@ -16,6 +16,7 @@ if (isset($_GET["id"])) {
                 <input type="text" name="search" placeholder="Find" id="searchInput" class="input">
                 <input type="submit" value="search" id="submit_search" class="button primary">
                 <input type="button" value="Add new" id="add_new" class="button primary">
+                <input type="button" value="Delete Seleced" id="btnDeleteSelected" class="button danger">
             </div>
             <div class="left">
                 <input class="button secondary" id="download_pdf_list" type="button" value="Download PDF" name="download_pdf" onclick="this.form.action='pdf_list.php'">

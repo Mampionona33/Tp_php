@@ -21,7 +21,7 @@ $CardMinToSec->addElement("</form>");
 $CardIncrement = new Card("Increment");
 $CardIncrement->addElement('<form id="formIncrement" method="post" class="card-form">');
 $CardIncrement->addElement('<input type="number" id="nbToIncrement" placeholder="Number to increment">');
-$CardIncrement->addElement('<input type="submit" class="button primary" id="btnIncrement" value="Increment"');
+$CardIncrement->addElement('<input type="button" class="button primary" id="btnIncrement" value="Increment"');
 $CardIncrement->addElement('</form>');
 ?>
 

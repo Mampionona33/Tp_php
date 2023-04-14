@@ -35,14 +35,22 @@ window.addEventListener("load", () => {
 
   // Increment
   const btnIncrement = document.getElementById("btnIncrement");
-  btnIncrement.addEventListener("click", (ev) => {
-    const formIncrement = document.getElementById("formIncrement");
-    const nbToIncrement = document.getElementById("nbToIncrement");
+  const formIncrement = document.getElementById("formIncrement");
+
+  btnIncrement.addEventListener("click", (event) => {
+    event.preventDefault();
+    formIncrement.submit();
+  });
+
+  formIncrement.addEventListener("submit", (ev) => {
     ev.preventDefault();
-    if (nbToIncrement) {
-      console.log(nbToIncrement);
-      // alert(increment(parseFloat(nbToIncrement.value)));
-      // formIncrement.submit();
+    const nbToIncrement = document.getElementById("nbToIncrement");
+    const nbToIncrementValue = parseInt(nbToIncrement.value);
+    if (!isNaN(nbToIncrementValue)) {
+      const result = increment(nbToIncrementValue);
+      nbToIncrement.value = result; // Mettre à jour la valeur de l'input
+      alert(result);
+      formIncrement.submit();
     }
   });
 });

@@ -1,3 +1,3 @@
 const increment = (nbr) => {
-  return nbr++;
+  return nbr + 1;
 };

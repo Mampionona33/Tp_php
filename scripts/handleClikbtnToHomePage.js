@@ -1,10 +1,9 @@
 const handleClikbtnToHomePage = () => {
-  //   const navbarForm = document.getElementById("navbarForm");
-
   window.location.href =
     window.location.origin +
     window.location.pathname.replace("/pages/exercices_js.php", "") +
     "/index.php";
+  console.log("test");
 };
 
 window.addEventListener("load", function () {

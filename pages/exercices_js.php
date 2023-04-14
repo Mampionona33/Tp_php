@@ -15,11 +15,21 @@ $CardMinToSec = new Card("Min to Sec");
 $CardMinToSec->addElement('<form method="post" id="formMinToSec" class="card-form">');
 $CardMinToSec->addElement('<input type="number" placeholder="Minutes" min="0" id="nbMinToSec">');
 $CardMinToSec->addElement('<input type="submit" class="button primary" id="btnMinToSec" value="Convert min to sec" >');
-$CardMinToSec->addElement("</form>")
+$CardMinToSec->addElement("</form>");
+
+// Icrementation
+$CardIncrement = new Card("Increment");
+$CardIncrement->addElement('<form id="formIncrement" method="post" class="card-form">');
+$CardIncrement->addElement('<input type="number" id="nbToIncrement" placeholder="Number to increment">');
+$CardIncrement->addElement('<input type="submit" class="button primary" id="btnIncrement" value="Increment"');
+$CardIncrement->addElement('</form>');
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
+
+
 
 <head>
     <meta charset="UTF-8">
@@ -35,11 +45,14 @@ $CardMinToSec->addElement("</form>")
     <div class="bodyContainer">
         <?php echo $CardAddition->render() ?>
         <?php echo $CardMinToSec->render() ?>
+        <?php echo $CardIncrement->render() ?>
     </div>
 
     <script src="../scripts/exercices_js/minToSec.js"></script>
     <script src="../scripts/exercices_js/addition.js"></script>
     <script src="../scripts/exercices_js/loadFunction.js"></script>
+    <script src="../scripts/exercices_js/increment.js"></script>
+    <script src="../scripts/handleClikbtnToHomePage.js"></script>
 </body>
 
 </html>

@@ -32,4 +32,17 @@ window.addEventListener("load", () => {
       }
     }
   });
+
+  // Increment
+  const btnIncrement = document.getElementById("btnIncrement");
+  btnIncrement.addEventListener("click", (ev) => {
+    const formIncrement = document.getElementById("formIncrement");
+    const nbToIncrement = document.getElementById("nbToIncrement");
+    ev.preventDefault();
+    if (nbToIncrement) {
+      console.log(nbToIncrement);
+      // alert(increment(parseFloat(nbToIncrement.value)));
+      // formIncrement.submit();
+    }
+  });
 });

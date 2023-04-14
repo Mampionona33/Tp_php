@@ -14,7 +14,6 @@
 <body>
     <?php
     include "./components/navbar_.php";
-    // include "./components/navbar.php";  
     include_once "./components/table.php";
     ?>
     <script src="./scripts/confirmDelete.js"></script>

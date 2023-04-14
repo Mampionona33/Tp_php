@@ -5,8 +5,8 @@ window.addEventListener("load", () => {
   // Addition
   btnMakeAdd.addEventListener("click", (ev) => {
     ev.preventDefault();
-    const nb1 = parseInt(document.getElementById("nb1Add").value);
-    const nb2 = parseInt(document.getElementById("nb2Add").value);
+    const nb1 = parseFloat(document.getElementById("nb1Add").value);
+    const nb2 = parseFloat(document.getElementById("nb2Add").value);
     if (nb1 && nb2 && btnMakeAdd) {
       const output = addition(nb1, nb2);
       btnMakeAdd && btnMakeAdd.addEventListener("click", alert(output));

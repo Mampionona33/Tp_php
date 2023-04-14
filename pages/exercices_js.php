@@ -1,6 +1,7 @@
 <?php
 require_once "../components/Card.php";
 
+
 // Card Additon
 $CardAddition = new Card("Addition");
 $CardAddition->addElement('<form id="formAdd" method="post" class="card-form">');
@@ -29,7 +30,7 @@ $CardMinToSec->addElement("</form>")
 </head>
 
 <body>
-    <?php include "../components/navbar.php" ?>
+    <?php include "../components/navbar_.php" ?>
 
     <div class="bodyContainer">
         <?php echo $CardAddition->render() ?>

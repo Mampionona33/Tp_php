@@ -80,6 +80,7 @@ window.addEventListener("load", () => {
   const formGetMax = document.getElementById("formGetMax");
   const btnGetMax = document.getElementById("btnGetMax");
   const listComaredVal = document.getElementById("listComaredVal");
+  const dialogGetMax = document.getElementById("dialogGetMax");
 
   btnAddValToMax.addEventListener("click", (ev) => {
     ev.preventDefault();
@@ -93,10 +94,14 @@ window.addEventListener("load", () => {
         listVal = currentComparedVal.concat(`,${nbCompareMaxVal}`);
         nbCompareMax.value = "";
         listComaredVal.innerText = listVal;
+        dialogGetMax.style.display = "block !important;";
+        console.log(dialogGetMax);
       } else {
         listVal = nbCompareMaxVal;
         nbCompareMax.value = "";
         listComaredVal.innerText = listVal;
+        dialogGetMax.style.display = "block !important;";
+        console.log(dialogGetMax);
       }
 
       localStorage.setItem("comparedVal", listVal);

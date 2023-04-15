@@ -34,7 +34,7 @@ $CardTxtReverse->addElement('</form>');
 
 // Get max
 $CardGetMax = new Card("Get max");
-$CardGetMax->addElement('<div id="dialogGetMax" class="dialog" style="display:none;" >');
+$CardGetMax->addElement('<div id="dialogGetMax" class="dialog hidden" >');
 $CardGetMax->addElement('<p class="info"  id="listComaredVal" ></p>');
 $CardGetMax->addElement('</div>');
 $CardGetMax->addElement('<form id="formGetMax" method="post" class="card-form">');

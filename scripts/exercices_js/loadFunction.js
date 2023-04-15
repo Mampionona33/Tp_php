@@ -81,6 +81,7 @@ window.addEventListener("load", () => {
   const btnGetMax = document.getElementById("btnGetMax");
   const listComaredVal = document.getElementById("listComaredVal");
   const dialogGetMax = document.getElementById("dialogGetMax");
+  const classDialogGetMax = dialogGetMax.getAttribute("class");
 
   btnAddValToMax.addEventListener("click", (ev) => {
     ev.preventDefault();
@@ -94,14 +95,14 @@ window.addEventListener("load", () => {
         listVal = currentComparedVal.concat(`,${nbCompareMaxVal}`);
         nbCompareMax.value = "";
         listComaredVal.innerText = listVal;
-        dialogGetMax.style.display = "block !important;";
-        console.log(dialogGetMax);
+        dialogGetMax.setAttribute("class", "dialog");
+        console.log(classDialogGetMax);
       } else {
         listVal = nbCompareMaxVal;
         nbCompareMax.value = "";
         listComaredVal.innerText = listVal;
-        dialogGetMax.style.display = "block !important;";
-        console.log(dialogGetMax);
+        dialogGetMax.setAttribute("class", "dialog");
+        console.log(classDialogGetMax);
       }
 
       localStorage.setItem("comparedVal", listVal);

@@ -7,10 +7,14 @@ window.addEventListener("load", () => {
     ev.preventDefault();
     const nb1 = parseFloat(document.getElementById("nb1Add").value);
     const nb2 = parseFloat(document.getElementById("nb2Add").value);
+    const respAdd = document.getElementById("respAdd");
+    const dial_resp_add = document.getElementById("dial_resp_add");
+
     if (nb1 && nb2 && btnMakeAdd) {
       const output = addition(nb1, nb2);
-      btnMakeAdd && btnMakeAdd.addEventListener("click", alert(output));
-      formAdd.submit();
+      respAdd.innerText = output;
+      dial_resp_add.setAttribute("class", "dialog");
+      // formAdd.submit();
     }
   });
 

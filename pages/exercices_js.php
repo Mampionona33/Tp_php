@@ -4,6 +4,9 @@ require_once "../components/Card.php";
 
 // Card Additon
 $CardAddition = new Card("Addition");
+$CardAddition->addElement('<div class="dialog hidden" id="dial_resp_add" >');
+$CardAddition->addElement('<p class="info" id="respAdd" ></p>');
+$CardAddition->addElement('</div>');
 $CardAddition->addElement('<form method="post" id="formAdd" method="post" class="card-form">');
 $CardAddition->addElement('<input type="number" required class="" placeholder="Number 1" id="nb1Add"  >');
 $CardAddition->addElement('<input type="number" required class="" placeholder="Number 2" id="nb2Add" >');

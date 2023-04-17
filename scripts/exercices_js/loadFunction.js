@@ -1,6 +1,7 @@
 window.addEventListener("load", () => {
   const btnMakeAdd = document.getElementById("btnMakeAdd");
   const formAdd = document.getElementById("formAdd");
+  const dial_resp_add = document.getElementById("dial_resp_add");
 
   // Addition
   btnMakeAdd.addEventListener("click", (ev) => {
@@ -8,7 +9,6 @@ window.addEventListener("load", () => {
     const nb1 = parseFloat(document.getElementById("nb1Add").value);
     const nb2 = parseFloat(document.getElementById("nb2Add").value);
     const respAdd = document.getElementById("respAdd");
-    const dial_resp_add = document.getElementById("dial_resp_add");
 
     if (nb1 && nb2 && btnMakeAdd) {
       const output = addition(nb1, nb2);
@@ -18,23 +18,35 @@ window.addEventListener("load", () => {
     }
   });
 
+  // Reset addition
+  formAdd.addEventListener("reset", (ev) => {
+    dial_resp_add.setAttribute("class", "hidden");
+  });
+
   // Min to second
   const btnMinToSec = document.getElementById("btnMinToSec");
+  const formMinToSec = document.getElementById("formMinToSec");
+  const dial_resp_min_to_sec = document.getElementById("dial_resp_min_to_sec");
   btnMinToSec.addEventListener("click", (ev) => {
-    const formMinToSec = document.getElementById("formMinToSec");
     const nbMinToSec = document.getElementById("nbMinToSec");
     const nbMinToSecVal = nbMinToSec.value;
+    const resp_min_to_sec = document.getElementById("resp_min_to_sec");
+
     ev.preventDefault();
     if (nbMinToSecVal) {
       const output = minToSec(parseInt(nbMinToSecVal));
       if (output >= 0) {
-        alert(output + " Sec");
-        formMinToSec.submit();
+        resp_min_to_sec.innerText = output + " sec";
+        dial_resp_min_to_sec.setAttribute("class", "dialog");
       } else {
         alert("The minutes must be greater or equal to zero.");
         nbMinToSec.value = ""; // Réinitialisation de la valeur
       }
     }
+  });
+
+  formMinToSec.addEventListener("reset", (ev) => {
+    dial_resp_min_to_sec.setAttribute("class", "hidden");
   });
 
   // Increment

@@ -11,13 +11,18 @@ $CardAddition->addElement('<form method="post" id="formAdd" method="post" class=
 $CardAddition->addElement('<input type="number" required class="" placeholder="Number 1" id="nb1Add"  >');
 $CardAddition->addElement('<input type="number" required class="" placeholder="Number 2" id="nb2Add" >');
 $CardAddition->addElement('<input type="submit" class="button primary" id="btnMakeAdd" value="Make an addition" >');
+$CardAddition->addElement('<input type="reset" class="button primary" id="btnResetAdd" value="Reset" >');
 $CardAddition->addElement('</form>');
 
 // Converion min to sec
 $CardMinToSec = new Card("Min to Sec");
+$CardMinToSec->addElement('<div class="dialog hidden" id="dial_resp_min_to_sec" >');
+$CardMinToSec->addElement('<p class="info" id="resp_min_to_sec" ></p>');
+$CardMinToSec->addElement('</div>');
 $CardMinToSec->addElement('<form method="post" id="formMinToSec" class="card-form">');
 $CardMinToSec->addElement('<input type="number" placeholder="Minutes" min="0" id="nbMinToSec">');
 $CardMinToSec->addElement('<input type="submit" class="button primary" id="btnMinToSec" value="Convert min to sec" >');
+$CardMinToSec->addElement('<input type="reset" class="button primary" id="reset_min_to_sec" value="Reset" >');
 $CardMinToSec->addElement("</form>");
 
 // Icrementation

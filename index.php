@@ -13,8 +13,8 @@ $newQuery->createDataBase($dbname);
 // création de la table "users"
 $sql = "CREATE TABLE IF NOT EXISTS users(
 id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-user_name VARCHAR(100),
-last_name VARCHAR(200),
+user_name VARCHAR(100) NOT NULL,
+last_name VARCHAR(200) NOT NULL,
 email VARCHAR(200),
 birth_day DATE,
 age INT,

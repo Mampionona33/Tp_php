@@ -27,6 +27,9 @@ $CardMinToSec->addElement("</form>");
 
 // Icrementation
 $CardIncrement = new Card("Increment");
+$CardIncrement->addElement('<div class="hidden" id="dial_res_increm" >');
+$CardIncrement->addElement('<p class="info" id="res_increm" ></p>');
+$CardIncrement->addElement('</div>');
 $CardIncrement->addElement('<form id="formIncrement" method="post" class="card-form">');
 $CardIncrement->addElement('<input type="number" id="nbToIncrement" placeholder="Number to increment">');
 $CardIncrement->addElement('<input type="button" class="button primary" id="btnIncrement" value="Increment">');

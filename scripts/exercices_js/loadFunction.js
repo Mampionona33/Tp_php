@@ -23,7 +23,6 @@ window.addEventListener("load", () => {
       dial_resp_add.setAttribute("class", "dialog");
       nb1.value = "";
       nb2.value = "";
-      // formAdd.submit();
     }
   });
 
@@ -61,21 +60,16 @@ window.addEventListener("load", () => {
   // Increment
   const btnIncrement = document.getElementById("btnIncrement");
   const formIncrement = document.getElementById("formIncrement");
+  const dial_res_increm = document.getElementById("dial_res_increm");
+  const res_increm = document.getElementById("res_increm");
+  const nbToIncrement = document.getElementById("nbToIncrement");
 
   btnIncrement.addEventListener("click", (event) => {
     event.preventDefault();
-    formIncrement.submit();
-  });
-
-  formIncrement.addEventListener("submit", (ev) => {
-    ev.preventDefault();
-    const nbToIncrement = document.getElementById("nbToIncrement");
-    const nbToIncrementValue = parseInt(nbToIncrement.value);
-    if (!isNaN(nbToIncrementValue)) {
-      const result = increment(nbToIncrementValue);
-      nbToIncrement.value = result; // Mettre à jour la valeur de l'input
-      alert(result);
-      formIncrement.submit();
+    if (nbToIncrement && !isNaN(nbToIncrement.value)) {
+      const res = increment(parseFloat(nbToIncrement.value));
+      dial_res_increm.setAttribute("class", "dialog");
+      res_increm.innerHTML = res;
     }
   });
 

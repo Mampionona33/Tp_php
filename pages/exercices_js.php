@@ -38,6 +38,9 @@ $CardIncrement->addElement('</form>');
 
 // Reverse text
 $CardTxtReverse = new Card("Reverse Text");
+$CardTxtReverse->addElement('<div class="hidden" id="dial_res_revers_txt" >');
+$CardTxtReverse->addElement('<p class="info" id="res_revers_txt" ></p>');
+$CardTxtReverse->addElement('</div>');
 $CardTxtReverse->addElement('<form id="formReversTxt" method="post" class="card-form">');
 $CardTxtReverse->addElement('<input type="text" id="txtToReverse" placeholder="Text to reverse">');
 $CardTxtReverse->addElement('<input type="button" class="button primary" id="btnReverse" value="Reverse">');

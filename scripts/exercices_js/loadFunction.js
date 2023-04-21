@@ -76,20 +76,19 @@ window.addEventListener("load", () => {
   // Reverse text
   const btnReverse = document.getElementById("btnReverse");
   const formReversTxt = document.getElementById("formReversTxt");
+  const dial_res_revers_txt = document.getElementById("dial_res_revers_txt");
+  const res_revers_txt = document.getElementById("res_revers_txt");
+  const txtToReverse = document.getElementById("txtToReverse");
 
   btnReverse.addEventListener("click", (ev) => {
     ev.preventDefault();
-    formReversTxt.submit();
-  });
-
-  formReversTxt.addEventListener("submit", (ev) => {
-    ev.preventDefault();
-    const txtToReverse = document.getElementById("txtToReverse");
-    const txt = txtToReverse.value;
-
-    if (txt.length > 0) {
-      alert(strRevers(txt));
-      formReversTxt.submit();
+    if (txtToReverse && txtToReverse.value) {
+      const res = strRevers(txtToReverse.value);
+      dial_res_revers_txt.setAttribute("class", "dialog");
+      res_revers_txt.innerHTML = res;
+      txtToReverse.value = "";
+    } else {
+      dial_res_revers_txt.setAttribute("class", "hidden");
     }
   });
 

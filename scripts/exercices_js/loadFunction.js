@@ -6,14 +6,23 @@ window.addEventListener("load", () => {
   // Addition
   btnMakeAdd.addEventListener("click", (ev) => {
     ev.preventDefault();
-    const nb1 = parseFloat(document.getElementById("nb1Add").value);
-    const nb2 = parseFloat(document.getElementById("nb2Add").value);
+
+    const nb1 = document.getElementById("nb1Add");
+    const nb2 = document.getElementById("nb2Add");
     const respAdd = document.getElementById("respAdd");
 
-    if (nb1 && nb2 && btnMakeAdd) {
-      const output = addition(nb1, nb2);
+    if (
+      nb1 &&
+      nb2 &&
+      btnMakeAdd &&
+      !isNaN(parseFloat(nb1.value)) &&
+      !isNaN(parseFloat(nb2.value))
+    ) {
+      const output = addition(parseFloat(nb1.value), parseFloat(nb2.value));
       respAdd.innerText = output;
       dial_resp_add.setAttribute("class", "dialog");
+      nb1.value = "";
+      nb2.value = "";
       // formAdd.submit();
     }
   });

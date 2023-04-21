@@ -1,18 +1,26 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 include "db.php";
+include "Query.php";
 
-$dbname = "users";
+$dbname = "db";
 
+$newQuery = new Query($conn);
+
+// initialisation de la base de données
 $sql = "CREATE DATABASE IF NOT EXISTS $dbname";
+$newQuery->createDataBase($dbname);
 
-// initialisation de la base de donnée
-if ($conn->query($sql) === TRUE) {
-    echo "La table user a été créée avec succès";
-} else {
-    echo "Erreur lors de la création de la table: " . $conn->error;
-}
+// création de la table "users"
+$sql = "CREATE TABLE IF NOT EXISTS users(
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+user_name VARCHAR(100),
+last_name VARCHAR(200),
+email VARCHAR(200),
+birth_day DATE,
+age INT,
+sex BOOLEAN
+)";
+
+$newQuery->createTable($dbname, $sql);
 
 $conn->close();

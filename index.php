@@ -4,11 +4,13 @@ ini_set('display_errors', 1);
 
 include "db.php";
 
-$sql = "CREATE DATABASE IF NOT EXISTS users";
+$dbname = "users";
+
+$sql = "CREATE DATABASE IF NOT EXISTS $dbname";
 
 // initialisation de la base de donnée
 if ($conn->query($sql) === TRUE) {
-    echo "La table mytable a été créée avec succès";
+    echo "La table user a été créée avec succès";
 } else {
     echo "Erreur lors de la création de la table: " . $conn->error;
 }

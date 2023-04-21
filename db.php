@@ -3,7 +3,6 @@
 $host = "127.0.0.1";
 $username = "root";
 $password = "";
-$dbname = "test";
 
 // Create connection
 $conn = new mysqli($host, $username, $password);

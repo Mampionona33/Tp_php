@@ -2,13 +2,15 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$host = "localhost";
-$username = "root";
-$password = "";
-$dbname = "test";
-$port = 8080;
+include "db.php";
 
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-$mysqli = new mysqli($host, $username, $password, $dbname, $port);
+$sql = "CREATE DATABASE IF NOT EXISTS users";
 
-echo $mysqli->host_info;
+// initialisation de la base de donnée
+if ($conn->query($sql) === TRUE) {
+    echo "La table mytable a été créée avec succès";
+} else {
+    echo "Erreur lors de la création de la table: " . $conn->error;
+}
+
+$conn->close();

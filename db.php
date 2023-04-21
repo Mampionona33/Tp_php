@@ -1,10 +1,14 @@
 <?php
-$host = "localhost";
+
+$host = "127.0.0.1";
 $username = "root";
 $password = "";
-$dbname = "nom_de_la_base_de_donnees";
+$dbname = "test";
 
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-$mysqli = new mysqli($host, $username, $password, "test");
+// Create connection
+$conn = new mysqli($host, $username, $password);
 
-echo $mysqli->host_info;
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}

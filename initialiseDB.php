@@ -15,7 +15,6 @@ id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 user_name VARCHAR(100) NOT NULL,
 last_name VARCHAR(200) NOT NULL,
 email VARCHAR(200),
-birth_day DATE,
 age INT,
 sex BOOLEAN
 ";

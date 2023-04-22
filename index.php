@@ -1,5 +1,11 @@
 <?php
 
+/* 
+    Mi créer db nom(varchar) prenom(varcahr) mariée(bool) age(int) 
+    
+*/
+
+
 // Configuration de la base de données
 $host = "127.0.0.1";
 $username = "root";
